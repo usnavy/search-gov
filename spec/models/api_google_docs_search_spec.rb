@@ -4,6 +4,17 @@ describe ApiGoogleDocsSearch do
   fixtures :affiliates
 
   let(:affiliate) { affiliates(:usagov_affiliate) }
+  let(:api_key) { AzureEngine::DEFAULT_AZURE_HOSTED_PASSWORD }
+  let(:search_params) do
+    { affiliate: affiliate,
+      api_key: api_key,
+      enable_highlighting: true,
+      limit: 20,
+      dc: 1,
+      next_offset_within_limit: true,
+      offset: 0,
+      query: 'nutrition' }
+  end
 
   before { affiliate.site_domains.create!(domain: 'usa.gov') }
 
@@ -17,7 +28,7 @@ describe ApiGoogleDocsSearch do
       GoogleWebSearch.should_receive(:new).
         with(enable_highlighting: false,
              language: 'en',
-             limit: 25,
+             limit: 20,
              next_offset_within_limit: true,
              offset: 10,
              password: 'my_api_key',
@@ -44,23 +55,18 @@ describe ApiGoogleDocsSearch do
         }
 
         GovboxSet.should_receive(:new).with(
-          'healthy snack',
+          'nutrition',
           affiliate,
           nil,
           highlighting_options)
 
-        described_class.new(affiliate: affiliate,
-                            api_key: 'my_api_key',
-                            enable_highlighting: true,
-                            limit: 20,
-                            dc: 1,
-                            next_offset_within_limit: true,
-                            offset: 0,
-                            query: 'healthy snack').run
+        described_class.new(search_params).run
       end
     end
 
     context 'when offset is not 0' do
+      before { search_params.merge!(offset: 888) }
+
       it 'does not initialize GovboxSet' do
         GovboxSet.should_not_receive(:new)
 
@@ -86,9 +92,7 @@ describe ApiGoogleDocsSearch do
                             query: 'ira'
       end
 
-      before do
-        search.run
-      end
+      before { search.run }
 
       it 'returns results' do
         puts search.query
@@ -97,9 +101,9 @@ describe ApiGoogleDocsSearch do
 
       it 'highlights title and description' do
         result = search.results.first
-        expect(result.title).to eq("Exercise and Eating \ue000Healthy\ue001 for Kids | Grades K - 5 | Kids.gov")
-        expect(result.description).to eq("Exercise and Eating \ue000Healthy\ue001 for Kids | Grades K - 5 ... What gear do you need for a sport? See a list here")
-        expect(result.url).to eq('http://kids.usa.gov/exercise-and-eating-healthy/index.shtml')
+        expect(result.title).to match(/\ue000.+\ue001/)
+        expect(result.description).to match(/\ue000.+\ue001/)
+        expect(result.url).to match(URI.regexp)
       end
 
       its(:next_offset) { should eq(20) }
@@ -108,14 +112,7 @@ describe ApiGoogleDocsSearch do
 
     context 'when enable_highlighting is disabled' do
       subject(:search) do
-        described_class.new affiliate: affiliate,
-                            api_key: 'my_api_key',
-                            enable_highlighting: false,
-                            limit: 20,
-                            dc: 1,
-                            next_offset_within_limit: true,
-                            offset: 0,
-                            query: 'healthy snack'
+        described_class.new search_params.merge(enable_highlighting: false)
       end
 
       before { search.run }
@@ -126,8 +123,8 @@ describe ApiGoogleDocsSearch do
 
       it 'highlights title and description' do
         result = search.results.first
-        expect(result.title).to eq("Exercise and Eating Healthy for Kids | Grades K - 5 | Kids.gov")
-        expect(result.description).to eq("Exercise and Eating Healthy for Kids | Grades K - 5 ... What gear do you need for a sport? See a list here")
+        expect(result.title).to_not match(/\ue000.+\ue001/)
+        expect(result.description).to_not match(/\ue000.+\ue001/)
       end
 
       its(:next_offset) { should eq(20) }
@@ -156,31 +153,21 @@ describe ApiGoogleDocsSearch do
     end
 
     context 'when the site locale is es' do
+      let(:affiliate) { affiliates(:spanish_affiliate) }
       let(:search) do
-        described_class.new affiliate: affiliate,
-                            api_key: 'my_api_key',
-                            enable_highlighting: true,
-                            limit: 20,
-                            dc: 1,
-                            next_offset_within_limit: true,
-                            offset: 0,
-                            query: 'educación'
+        described_class.new search_params.merge(query: 'casa blanca', affiliate: affiliate)
       end
 
-      before do
-        Language.stub(:find_by_code).with('es').and_return(mock_model(Language, is_azure_supported: true, inferred_country_code: 'US'))
-        affiliate.locale = 'es'
-        search.run
-      end
+      before { search.run }
 
       it 'returns results' do
         expect(search.results.count).to eq(20)
       end
 
       it 'highlights title and description' do
-        result = search.results[1]
-        expect(result.title).to eq("\ue000Educación\ue001 para recién llegados | GobiernoUSA.gov")
-        expect(result.description).to eq("\ue000Educación\ue001 para recién llegados en GobiernoUSA.gov ... Identifique un programa para después del horario escolar para su hijo; Información sobre becas y servicios ...")
+        result = search.results.first
+        expect(result.title).to match(/\ue000.+\ue001/)
+        expect(result.description).to match(/\ue000.+\ue001/)
       end
     end
 
@@ -204,16 +191,7 @@ describe ApiGoogleDocsSearch do
   end
 
   describe '#as_json' do
-    subject(:search) do
-      described_class.new affiliate: affiliate,
-                          api_key: 'my_api_key',
-                          enable_highlighting: true,
-                          dc: 1,
-                          limit: 20,
-                          next_offset_within_limit: true,
-                          offset: 0,
-                          query: 'healthy snack'
-    end
+    subject(:search) { described_class.new search_params }
 
     before { search.run }
 
@@ -223,9 +201,9 @@ describe ApiGoogleDocsSearch do
 
     it 'highlights title and description' do
       result = Hashie::Mash.new(search.as_json[:docs][:results].first)
-      expect(result.title).to eq("Exercise and Eating \ue000Healthy\ue001 for Kids | Grades K - 5 | Kids.gov")
-      expect(result.snippet).to eq("Exercise and Eating \ue000Healthy\ue001 for Kids | Grades K - 5 ... What gear do you need for a sport? See a list here")
-      expect(result.url).to eq('http://kids.usa.gov/exercise-and-eating-healthy/index.shtml')
+      expect(result.title).to match(/\ue000.+\ue001/i)
+      expect(result.snippet).to match(/\ue000.+\ue001/i)
+      expect(result.url).to match(URI.regexp)
     end
   end
 end
