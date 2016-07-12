@@ -1,0 +1,369 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/customsearch/v1?alt=json&cx=005675969675701682971:usi2bmqvnp8&key=***REMOVED***&lr=lang_en&q=gss%20no%20next%20site:usa.gov&quotaUser=USASearch&safe=medium
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - USASearch
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Tue, 12 Jul 2016 20:41:36 GMT
+      Date:
+      - Tue, 12 Jul 2016 20:41:36 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"ZK6WcJ2_cdL-1Kol5cpaPQsD0mI/ufVKN6T9n_Ygov6aXTWFjiLhAlM"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '14666'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="36,35,34,33,32,31,30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "customsearch#search",
+         "url": {
+          "type": "application/json",
+          "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+         },
+         "queries": {
+          "request": [
+           {
+            "title": "Google Custom Search - gss no next site:usa.gov",
+            "totalResults": "210",
+            "searchTerms": "gss no next site:usa.gov",
+            "count": 10,
+            "startIndex": 1,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ],
+          "nextPage": [
+           {
+            "title": "Google Custom Search - gss no next site:usa.gov",
+            "totalResults": "210",
+            "searchTerms": "gss no next site:usa.gov",
+            "count": 10,
+            "startIndex": 11,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ]
+         },
+         "context": {
+          "title": "DigitalGov Search"
+         },
+         "searchInformation": {
+          "searchTime": 0.134737,
+          "formattedSearchTime": "0.13",
+          "totalResults": "210",
+          "formattedTotalResults": "210"
+         },
+         "items": [
+          {
+           "kind": "customsearch#result",
+           "title": "Frequently Asked Questions (FAQs) - NAICS - US Census Bureau",
+           "htmlTitle": "Frequently Asked Questions (FAQs) - NAICS - US Census Bureau",
+           "link": "http://1.usa.gov/NQ1PYC",
+           "displayLink": "1.usa.gov",
+           "snippet": "Feb 1, 2016 ... NAICS is an industry classification system, not a product classification system, \nand therefore neither intended nor well suited for this purpose.",
+           "htmlSnippet": "Feb 1, 2016 \u003cb\u003e...\u003c/b\u003e NAICS is an industry classification system, \u003cb\u003enot\u003c/b\u003e a product classification system, \u003cbr\u003e\nand therefore neither intended nor well suited for this purpose.",
+           "cacheId": "T8U6WxlGGiYJ",
+           "formattedUrl": "1.usa.gov/NQ1PYC",
+           "htmlFormattedUrl": "1.usa.gov/NQ1PYC",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "72",
+              "height": "77",
+              "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSdDGvcku5b7NzbxGNXXtxZRSwkR-1yF48aodY6SyUYwdWwEzP9SQW_"
+             }
+            ],
+            "metatags": [
+             {
+              "dc.title": "North American Industry Classification System (NAICS) Frequently Asked Questions (FAQs)",
+              "dc.description": "Frequently Asked Questions (FAQs) - North American Industry Classification System (NAICS) - US Census Bureau",
+              "dc.creator": "Special Projects Staff, Service Sector Statistics Division",
+              "dc.date.created": "2012-05-15",
+              "dc.date.reviewed": "2010-10-02",
+              "dc.language": "EN-US",
+              "author": "SSSD - naics@census.gov"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.census.gov/eos/www/naics/img/NAICS_logo.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Accra, Ghana - Embassy of the United States: Home",
+           "htmlTitle": "Accra, Ghana - Embassy of the United States: Home",
+           "link": "http://1.usa.gov/1f37yvc",
+           "displayLink": "1.usa.gov",
+           "snippet": "I really can think of no better way to start this week than with such a gathering of \nreally remarkable people, all of whom are determined to make a difference in a ...",
+           "htmlSnippet": "I really can think of \u003cb\u003eno\u003c/b\u003e better way to start this week than with such a gathering of \u003cbr\u003e\nreally remarkable people, all of whom are determined to make a difference in a&nbsp;...",
+           "cacheId": "f_qWUNHwPZ4J",
+           "formattedUrl": "1.usa.gov/1f37yvc",
+           "htmlFormattedUrl": "1.usa.gov/1f37yvc",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "347",
+              "height": "145",
+              "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRBRqlnUp4Bgygv6zeDlRz_Luu2pLjkg93GbURjNkbPkn5z8-wVTTeAqBI"
+             }
+            ],
+            "metatags": [
+             {
+              "dc_title": "Home",
+              "dc_date": "2016-01-27",
+              "dc_creator": "U.S. Embassy",
+              "dc_identifier": "http://usembassy.state.gov/index.html",
+              "dc_source": "http://usembassy.state.gov/index.html",
+              "template_format": "embassy",
+              "template_version": "2.0",
+              "template_language": "English",
+              "dc_language": "en"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://photos.state.gov/libraries/ghana/231771/Photos/IMG_5645-2.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Facts for Features: Older Americans Month: May 2011 - Facts for ...",
+           "htmlTitle": "Facts for Features: Older Americans Month: May 2011 - Facts for ...",
+           "link": "http://1.usa.gov/feArsD",
+           "displayLink": "1.usa.gov",
+           "snippet": "Mar 23, 2011 ... (The figures for 2010 are not census counts.) Source: The Next Four Decades: \nThe Older Population in the United States: 2010 to 2050 ...",
+           "htmlSnippet": "Mar 23, 2011 \u003cb\u003e...\u003c/b\u003e (The figures for 2010 are \u003cb\u003enot\u003c/b\u003e census counts.) Source: The \u003cb\u003eNext\u003c/b\u003e Four Decades: \u003cbr\u003e\nThe Older Population in the United States: 2010 to 2050&nbsp;...",
+           "cacheId": "v8dbK8_z8G8J",
+           "formattedUrl": "1.usa.gov/feArsD",
+           "htmlFormattedUrl": "1.usa.gov/feArsD",
+           "pagemap": {
+            "metatags": [
+             {
+              "dc.title": "Facts for Features: Older Americans Month: May 2011 - Facts for Features & Special Editions - Newsroom - U.S. Census Bureau",
+              "dc.description": "Facts for Features: Older Americans Month: May 2011",
+              "dc.creator": "US Census Bureau Public Information Office",
+              "dc.date.created": "2016-05-19",
+              "dc.date.reviewed": "2016-05-19",
+              "dc.language": "EN-US",
+              "author": "US Census Bureau Public Information Office"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "2016 Census Test",
+           "htmlTitle": "2016 Census Test",
+           "link": "http://1.usa.gov/25JdqSM",
+           "displayLink": "1.usa.gov",
+           "snippet": "Government Organization · Government Taxes · Redistricting Data · Voting and \nRegistration. Geography. Geography Main · About · Education · GSS Initiative ...",
+           "htmlSnippet": "Government Organization &middot; Government Taxes &middot; Redistricting Data &middot; Voting and \u003cbr\u003e\nRegistration. Geography. Geography Main &middot; About &middot; Education &middot; \u003cb\u003eGSS\u003c/b\u003e Initiative&nbsp;...",
+           "cacheId": "OWYm-XjeY5IJ",
+           "formattedUrl": "1.usa.gov/25JdqSM",
+           "htmlFormattedUrl": "1.usa.gov/25JdqSM",
+           "pagemap": {
+            "metatags": [
+             {
+              "viewport": "width=device-width, initial-scale=1",
+              "dc.title": "2016 Census Test",
+              "dc.creator": "US Census Bureau",
+              "dc.date.reviewed": "2016-05-26T16:13:59.219-04:00",
+              "dc.language": "EN-US",
+              "author": "US Census Bureau",
+              "og:description": "The primary focus of the 2016 Census Test is to refine the methodologies for conducting nonresponse follow-up."
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Population Clock",
+           "htmlTitle": "Population Clock",
+           "link": "http://1.usa.gov/171ptkp",
+           "displayLink": "1.usa.gov",
+           "snippet": "These projections do not include members of the Armed Forces overseas, their \ndependents, or other U.S. citizens residing outside the United States.",
+           "htmlSnippet": "These projections do \u003cb\u003enot\u003c/b\u003e include members of the Armed Forces overseas, their \u003cbr\u003e\ndependents, or other U.S. citizens residing outside the United States.",
+           "cacheId": "4g0ORUxQcocJ",
+           "formattedUrl": "1.usa.gov/171ptkp",
+           "htmlFormattedUrl": "1.usa.gov/171ptkp",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "105",
+              "height": "57",
+              "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTW7-DUf_8kjO2AG6DhYgRAmWSUm2tDovNQzmV9R7Pf9rVKKkI3tTsk"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.census.gov/content/census/en/data/data-tools/population-clock.relateditem.png/1464107400618.png"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "2015 Census Tests",
+           "htmlTitle": "2015 Census Tests",
+           "link": "http://1.usa.gov/1MC4ULL",
+           "displayLink": "1.usa.gov",
+           "snippet": "Government Organization · Government Taxes · Redistricting Data · Voting and \nRegistration. Geography. Geography Main · About · Education · GSS Initiative ...",
+           "htmlSnippet": "Government Organization &middot; Government Taxes &middot; Redistricting Data &middot; Voting and \u003cbr\u003e\nRegistration. Geography. Geography Main &middot; About &middot; Education &middot; \u003cb\u003eGSS\u003c/b\u003e Initiative&nbsp;...",
+           "cacheId": "JdBXYUp-I8kJ",
+           "formattedUrl": "1.usa.gov/1MC4ULL",
+           "htmlFormattedUrl": "1.usa.gov/1MC4ULL",
+           "pagemap": {
+            "metatags": [
+             {
+              "viewport": "width=device-width, initial-scale=1",
+              "dc.title": "2015 Census Tests",
+              "dc.creator": "US Census Bureau",
+              "dc.date.reviewed": "2016-02-12T16:03:02.161-05:00",
+              "dc.language": "EN-US",
+              "author": "US Census Bureau",
+              "og:description": "Tests in 2015 continued research on modern and cost-efficient methods to conduct the 2020 Census."
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Facts for Features: Hispanic Heritage Month 2012: Sept. 15 — Oct ...",
+           "htmlTitle": "Facts for Features: Hispanic Heritage Month 2012: Sept. 15 — Oct ...",
+           "link": "http://1.usa.gov/1sDPVIh",
+           "displayLink": "1.usa.gov",
+           "snippet": "Aug 6, 2012 ... ... Hernandez (15th) were the next most common Hispanic surnames. ... Our \nlinking to these sites does not constitute an endorsement of any ...",
+           "htmlSnippet": "Aug 6, 2012 \u003cb\u003e...\u003c/b\u003e ... Hernandez (15th) were the \u003cb\u003enext\u003c/b\u003e most common Hispanic surnames. ... Our \u003cbr\u003e\nlinking to these sites does \u003cb\u003enot\u003c/b\u003e constitute an endorsement of any&nbsp;...",
+           "cacheId": "RpMMkyWXO2MJ",
+           "formattedUrl": "1.usa.gov/1sDPVIh",
+           "htmlFormattedUrl": "1.usa.gov/1sDPVIh",
+           "pagemap": {
+            "metatags": [
+             {
+              "dc.title": "Facts for Features: Hispanic Heritage Month 2012: Sept. 15 &mdash; Oct. 15 - Facts for Features & Special Editions - Newsroom - U.S. Census Bureau",
+              "dc.description": "Facts for Features: Hispanic Heritage Month 2012: Sept. 15 &mdash; Oct. 15",
+              "dc.creator": "US Census Bureau Public Information Office",
+              "dc.date.created": "2016-05-19",
+              "dc.date.reviewed": "2016-05-19",
+              "dc.language": "EN-US",
+              "author": "US Census Bureau Public Information Office"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "OFAC's Frequently Asked Questions (FAQs) Index",
+           "htmlTitle": "OFAC&#39;s Frequently Asked Questions (FAQs) Index",
+           "link": "http://1.usa.gov/128MxDA",
+           "displayLink": "1.usa.gov",
+           "snippet": "May 5, 2016 ... ... and Performance · TreasuryDirect.gov Securities/Bonds · Freedom of \nInformation Act (FOIA) · No FEAR Act Data · Whistleblower Protection.",
+           "htmlSnippet": "May 5, 2016 \u003cb\u003e...\u003c/b\u003e ... and Performance &middot; TreasuryDirect.gov Securities/Bonds &middot; Freedom of \u003cbr\u003e\nInformation Act (FOIA) &middot; \u003cb\u003eNo\u003c/b\u003e FEAR Act Data &middot; Whistleblower Protection.",
+           "cacheId": "67pqwLVoTqAJ",
+           "formattedUrl": "1.usa.gov/128MxDA",
+           "htmlFormattedUrl": "1.usa.gov/128MxDA"
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "2020 Census",
+           "htmlTitle": "2020 Census",
+           "link": "http://1.usa.gov/1FO7tU6",
+           "displayLink": "1.usa.gov",
+           "snippet": "GSS Initiative ..... 2020 Census: No Time to Lose. October 07, 2015. Continued \ninvestment in real-world testing of our innovations is needed now to save $5 ...",
+           "htmlSnippet": "\u003cb\u003eGSS\u003c/b\u003e Initiative ..... 2020 Census: \u003cb\u003eNo\u003c/b\u003e Time to Lose. October 07, 2015. Continued \u003cbr\u003e\ninvestment in real-world testing of our innovations is needed now to save $5&nbsp;...",
+           "cacheId": "g9YQqQELYNoJ",
+           "formattedUrl": "1.usa.gov/1FO7tU6",
+           "htmlFormattedUrl": "1.usa.gov/1FO7tU6",
+           "pagemap": {
+            "metatags": [
+             {
+              "viewport": "width=device-width, initial-scale=1",
+              "dc.title": "2020 Census",
+              "dc.creator": "US Census Bureau",
+              "dc.date.reviewed": "2016-07-02T15:58:54.274-04:00",
+              "dc.language": "EN-US",
+              "author": "US Census Bureau",
+              "og:description": "The U.S. Census Bureau is researching modern and cost-efficient methods for the population to exercise its civic obligation to be counted in the 2020 Census."
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Most Children Younger Than Age 1 are Minorities, Census Bureau ...",
+           "htmlTitle": "Most Children Younger Than Age 1 are Minorities, Census Bureau ...",
+           "link": "http://1.usa.gov/JRHHEU",
+           "displayLink": "1.usa.gov",
+           "snippet": "May 17, 2012 ... A minority is anyone who is not single-race white and not Hispanic. ... No other \nstate had a minority population greater than 46.4 percent of the ...",
+           "htmlSnippet": "May 17, 2012 \u003cb\u003e...\u003c/b\u003e A minority is anyone who is \u003cb\u003enot\u003c/b\u003e single-race white and \u003cb\u003enot\u003c/b\u003e Hispanic. ... \u003cb\u003eNo\u003c/b\u003e other \u003cbr\u003e\nstate had a minority population greater than 46.4 percent of the&nbsp;...",
+           "cacheId": "_F6jXxtWPCYJ",
+           "formattedUrl": "1.usa.gov/JRHHEU",
+           "htmlFormattedUrl": "1.usa.gov/JRHHEU",
+           "pagemap": {
+            "metatags": [
+             {
+              "dc.title": "Most Children Younger Than Age 1 are Minorities, Census Bureau Reports - Population - Newsroom - U.S. Census Bureau",
+              "dc.description": "Most Children Younger Than Age 1 are Minorities, Census Bureau Reports",
+              "dc.creator": "US Census Bureau Public Information Office",
+              "dc.date.created": "2016-05-19",
+              "dc.date.reviewed": "2016-05-19",
+              "dc.language": "EN-US",
+              "author": "US Census Bureau Public Information Office"
+             }
+            ]
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Tue, 12 Jul 2016 20:41:36 GMT
+recorded_with: VCR 3.0.3

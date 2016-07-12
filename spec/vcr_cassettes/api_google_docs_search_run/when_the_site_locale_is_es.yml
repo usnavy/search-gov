@@ -1,0 +1,577 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/customsearch/v1?alt=json&cx=005675969675701682971:usi2bmqvnp8&key=***REMOVED***&lr=lang_en&q=casa%20blanca%20site:usa.gov&quotaUser=USASearch&safe=medium
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - USASearch
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Tue, 12 Jul 2016 20:34:49 GMT
+      Date:
+      - Tue, 12 Jul 2016 20:34:49 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"ZK6WcJ2_cdL-1Kol5cpaPQsD0mI/vJLctFR1Vohqllnre6gs5jsCaaA"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '27549'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="36,35,34,33,32,31,30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "customsearch#search",
+         "url": {
+          "type": "application/json",
+          "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+         },
+         "queries": {
+          "request": [
+           {
+            "title": "Google Custom Search - casa blanca site:usa.gov",
+            "totalResults": "910",
+            "searchTerms": "casa blanca site:usa.gov",
+            "count": 10,
+            "startIndex": 1,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ],
+          "nextPage": [
+           {
+            "title": "Google Custom Search - casa blanca site:usa.gov",
+            "totalResults": "910",
+            "searchTerms": "casa blanca site:usa.gov",
+            "count": 10,
+            "startIndex": 11,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ]
+         },
+         "context": {
+          "title": "DigitalGov Search"
+         },
+         "searchInformation": {
+          "searchTime": 0.425705,
+          "formattedSearchTime": "0.43",
+          "totalResults": "910",
+          "formattedTotalResults": "910"
+         },
+         "items": [
+          {
+           "kind": "customsearch#result",
+           "title": "The Casablanca Conference, 1943",
+           "htmlTitle": "The \u003cb\u003eCasablanca\u003c/b\u003e Conference, 1943",
+           "link": "http://1.usa.gov/14WBruY",
+           "displayLink": "1.usa.gov",
+           "snippet": "The Casablanca Conference was a meeting between U.S. President Franklin D. \nRoosevelt and British Prime Minister Winston Churchill in the city of Casablanca\n ...",
+           "htmlSnippet": "The \u003cb\u003eCasablanca\u003c/b\u003e Conference was a meeting between U.S. President Franklin D. \u003cbr\u003e\nRoosevelt and British Prime Minister Winston Churchill in the city of \u003cb\u003eCasablanca\u003c/b\u003e\u003cbr\u003e\n&nbsp;...",
+           "cacheId": "BpDQgZr_IEIJ",
+           "formattedUrl": "1.usa.gov/14WBruY",
+           "htmlFormattedUrl": "1.usa.gov/14WBruY",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "160",
+              "height": "160",
+              "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTWALNYXpLdjRBis6wIxDBz642uzJZukzfnf1tYE-Dxm_Js2RfvXfBjhuo"
+             }
+            ],
+            "metatags": [
+             {
+              "viewport": "width=device-width, initial-scale=1.0"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://s3.amazonaws.com/static.history.state.gov/milestones/casablanca-conference.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Petition the White House on the Issues that Matter to You | We the ...",
+           "htmlTitle": "Petition the White House on the Issues that Matter to You | We the ...",
+           "link": "http://1.usa.gov/QN4iUe",
+           "displayLink": "1.usa.gov",
+           "snippet": "Create a Petition. Call on the White House to take action on the issue that matters \nto you. Gather Signatures. Share your petition with others, build a community ...",
+           "htmlSnippet": "Create a Petition. Call on the White House to take action on the issue that matters \u003cbr\u003e\nto you. Gather Signatures. Share your petition with others, build a community&nbsp;...",
+           "cacheId": "cBaFJnouDFUJ",
+           "formattedUrl": "1.usa.gov/QN4iUe",
+           "htmlFormattedUrl": "1.usa.gov/QN4iUe",
+           "pagemap": {
+            "metatags": [
+             {
+              "msapplication-config": "https://petitions.whitehouse.gov/profiles/petitions/themes/petitions_responsive/browserconfig.xml",
+              "msapplication-square310x310logo": "https://petitions.whitehouse.gov/profiles/petitions/themes/petitions_responsive/images/favicons/mstile-310x310.png",
+              "msapplication-wide310x150logo": "https://petitions.whitehouse.gov/profiles/petitions/themes/petitions_responsive/images/favicons/mstile-310x150.png",
+              "msapplication-square150x150logo": "https://petitions.whitehouse.gov/profiles/petitions/themes/petitions_responsive/images/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://petitions.whitehouse.gov/profiles/petitions/themes/petitions_responsive/images/favicons/mstile-70x70.png",
+              "application-name": "Petitions",
+              "msapplication-tilecolor": "#ffffff",
+              "og:image": "https://petitions.whitehouse.gov/profiles/petitions/themes/petitions_responsive/images/fb_share.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://petitions.whitehouse.gov/profiles/petitions/themes/petitions_responsive/images/fb_share.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Tours & Events | whitehouse.gov",
+           "htmlTitle": "Tours &amp; Events | whitehouse.gov",
+           "link": "http://1.usa.gov/22UOt4u",
+           "displayLink": "1.usa.gov",
+           "snippet": "Now anyone, anywhere, can experience the history and art of the White House \nvia the online virtual tour or in person after submitting a tour request through ...",
+           "htmlSnippet": "Now anyone, anywhere, can experience the history and art of the White House \u003cbr\u003e\nvia the online virtual tour or in person after submitting a tour request through&nbsp;...",
+           "cacheId": "BR_3RyAeDPIJ",
+           "formattedUrl": "1.usa.gov/22UOt4u",
+           "htmlFormattedUrl": "1.usa.gov/22UOt4u",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "192",
+              "height": "192",
+              "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTRcpP5vvqNQyVnbk3pb3tn2UFHAWwpQ8BNoUNnLq0_s2duoTMHgyTuMwQ"
+             }
+            ],
+            "metatags": [
+             {
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tilecolor": "#003C80",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "application-name": "Whitehouse",
+              "abstract": "Now anyone, anywhere, can experience the history and art of the White House via the online virtual tour or in person after submitting a tour request through one's Member of Congress.",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:title": "Tours & Events",
+              "og:url": "https://www.whitehouse.gov/participate/tours-and-events",
+              "og:description": "Now anyone, anywhere, can experience the history and art of the White House via the online virtual tour or in person after submitting a tour request through one's Member of Congress.",
+              "og:updated_time": "2016-05-24T16:00:04-04:00",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_tours.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:type": "image/jpeg",
+              "og:image:width": "240",
+              "og:image:height": "240",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/participate/tours-and-events",
+              "twitter:title": "Tours & Events",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_tours.jpg",
+              "twitter:image:width": "240",
+              "twitter:image:height": "240",
+              "article:published_time": "2015-04-27T11:23:22-04:00",
+              "article:modified_time": "2016-05-24T16:00:04-04:00",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_tours.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Live Events | whitehouse.gov",
+           "htmlTitle": "Live Events | whitehouse.gov",
+           "link": "http://1.usa.gov/1Njd5A9",
+           "displayLink": "1.usa.gov",
+           "snippet": "“America is not the project of any one person. The single-most powerful word in \nour democracy is the word 'we.'\" -President Obama. This is our record. This is ...",
+           "htmlSnippet": "“America is not the project of any one person. The single-most powerful word in \u003cbr\u003e\nour democracy is the word &#39;we.&#39;&quot; -President Obama. This is our record. This is&nbsp;...",
+           "cacheId": "fghl4krwHnYJ",
+           "formattedUrl": "1.usa.gov/1Njd5A9",
+           "htmlFormattedUrl": "1.usa.gov/1Njd5A9",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "192",
+              "height": "192",
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzOOWGgCzJoffDUxZvYJkipnV_Dhl6o89xIpGqC-tG-aiunUuVxO64ESJH"
+             }
+            ],
+            "metatags": [
+             {
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tilecolor": "#003C80",
+              "application-name": "Whitehouse",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:url": "https://www.whitehouse.gov/live",
+              "og:title": "Live Events",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_live.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_live.jpg",
+              "og:image:width": "240",
+              "og:image:height": "240",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/live",
+              "twitter:title": "Live Events",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_live.jpg",
+              "twitter:image:width": "240",
+              "twitter:image:height": "240",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_live.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Morocco, Casablanca: Casablanca American School",
+           "htmlTitle": "Morocco, \u003cb\u003eCasablanca\u003c/b\u003e: \u003cb\u003eCasablanca\u003c/b\u003e American School",
+           "link": "http://go.usa.gov/3hjU5",
+           "displayLink": "go.usa.gov",
+           "snippet": "Casablanca American School. ... staffing@cas.ac.ma Web: www.cas.ac.ma Date: \n10/22/2015 Description: Casablanca American School Morocco Fact Sheet -.",
+           "htmlSnippet": "\u003cb\u003eCasablanca\u003c/b\u003e American School. ... staffing@cas.ac.ma Web: www.cas.ac.ma Date: \u003cbr\u003e\n10/22/2015 Description: \u003cb\u003eCasablanca\u003c/b\u003e American School Morocco Fact Sheet -.",
+           "cacheId": "lKXab87hzQQJ",
+           "formattedUrl": "go.usa.gov/3hjU5",
+           "htmlFormattedUrl": "go.usa.gov/3hjU5",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "195",
+              "height": "258",
+              "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRqlapT_3zgQdNcdjyjYSd_iqH1GK9BubsR8ZMP8kI2FKPx9EgWgWJzTss"
+             }
+            ],
+            "metatags": [
+             {
+              "dc_title": "Morocco, Casablanca:  Casablanca American School",
+              "dc_date": "2014-01-15",
+              "dc_subject": "education programs|overseas schools|schools|student programs|interns|",
+              "dc_subject2": "education programs|overseas schools|schools|student programs|interns|",
+              "dc_description": "Casablanca American School",
+              "dc_identifier": "http://www.state.gov/m/a/os/219792.htm",
+              "dc_creator": "Department Of State. The Office of Website Management, Bureau of Public Affairs.",
+              "dc_publisher": "Department Of State. The Office of Website Management, Bureau of Public Affairs.",
+              "dc_language": "en",
+              "dc_format": "document,html",
+              "dc_rights": "http://www.state.gov/r/pa/ei/rls/dos/3797.htm",
+              "og:title": "Morocco, Casablanca:  Casablanca American School",
+              "og:type": "article",
+              "og:url": "http://www.state.gov/m/a/os/219792.htm",
+              "og:image": "http://www.state.gov/images/2014/dos-seal-256x256.png",
+              "og:site_name": "U.S. Department of State",
+              "domain": "www2.state.gov"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.state.gov/img/15/64415/Africa_MoroccoCasablanca_Internet_654_1.JPG"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "The Historic Deal that Will Prevent Iran from Acquiring a Nuclear ...",
+           "htmlTitle": "The Historic Deal that Will Prevent Iran from Acquiring a Nuclear ...",
+           "link": "http://1.usa.gov/1yKm5lf",
+           "displayLink": "1.usa.gov",
+           "snippet": "How the U.S. and the international community will block all of Iran's pathways to a \nnuclear weapon.",
+           "htmlSnippet": "How the U.S. and the international community will block all of Iran&#39;s pathways to a \u003cbr\u003e\nnuclear weapon.",
+           "cacheId": "i7yu1kHWHj0J",
+           "formattedUrl": "1.usa.gov/1yKm5lf",
+           "htmlFormattedUrl": "1.usa.gov/1yKm5lf",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "430",
+              "height": "117",
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTmp__zQXjkDeZAPxdmDqdzM-xPDqnG4NKJ80hY19HxU3pAx38IX1Lgfk"
+             }
+            ],
+            "metatags": [
+             {
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0",
+              "og:site_name": "The White House",
+              "og:title": "Iran Deal",
+              "og:description": "How the U.S. and the international community will block all of Iran’s pathways to a nuclear weapon",
+              "abstract": "See the President's daily schedule, explore behind-the-scenes photos from inside the White House, and find out all the ways you can engage with the most interactive administration in our country's history.",
+              "og:image": "https://www.whitehouse.gov/profiles/forall/modules/custom/gov_whitehouse_www/images/icons/wh_logo_seal.png",
+              "og:type": "website",
+              "og:url": "https://www.whitehouse.gov/node/328996",
+              "fb:admins": "100000095507875"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/default/files/longpage/historic_iran-deal_header_0.png"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Coca In The Andes | The White House",
+           "htmlTitle": "Coca In The Andes | The White House",
+           "link": "http://1.usa.gov/UPPGXU",
+           "displayLink": "1.usa.gov",
+           "snippet": "Coca In The Andes. Coca, the raw material for cocaine, is grown exclusively in \nthe Andean region of South America. Cocaine production constitutes a threat to ...",
+           "htmlSnippet": "Coca In The Andes. Coca, the raw material for cocaine, is grown exclusively in \u003cbr\u003e\nthe Andean region of South America. Cocaine production constitutes a threat to&nbsp;...",
+           "cacheId": "A0BlmGH1ooMJ",
+           "formattedUrl": "1.usa.gov/UPPGXU",
+           "htmlFormattedUrl": "1.usa.gov/UPPGXU",
+           "pagemap": {
+            "metatags": [
+             {
+              "og:site_name": "The White House",
+              "og:title": "Coca In The Andes",
+              "og:description": "Coca, the raw material for cocaine, is grown exclusively in the Andean region of South America. Cocaine production constitutes a threat to U.S. security and the well-being of our citizens. According to U.S. Government estimates, ninety-five percent of the cocaine entering the United States originates in Colombia.",
+              "abstract": "See the President's daily schedule, explore behind-the-scenes photos from inside the White House, and find out all the ways you can engage with the most interactive administration in our country's history.",
+              "og:image": "https://www.whitehouse.gov/profiles/forall/modules/custom/gov_whitehouse_www/images/icons/wh_logo_seal.png",
+              "og:type": "website",
+              "og:url": "https://www.whitehouse.gov/node/68401",
+              "fb:admins": "100000095507875"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/profiles/forall/modules/custom/gov_whitehouse_www/images/icons/wh_logo_seal.png"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "HOJA INFORMATIVA: Durante la Feria de Ciencias de la Casa ...",
+           "htmlTitle": "HOJA INFORMATIVA: Durante la Feria de Ciencias de la \u003cb\u003eCasa\u003c/b\u003e ...",
+           "link": "http://1.usa.gov/1Sz1dGu",
+           "displayLink": "1.usa.gov",
+           "snippet": "13 Abr 2016 ... Hoy, el Presidente Obama será el anfitrión de la sexta y última Feria de Ciencias \nde la Casa Blanca de su administración y se celebrará a los ...",
+           "htmlSnippet": "13 Abr 2016 \u003cb\u003e...\u003c/b\u003e Hoy, el Presidente Obama será el anfitrión de la sexta y última Feria de Ciencias \u003cbr\u003e\nde la \u003cb\u003eCasa Blanca\u003c/b\u003e de su administración y se celebrará a los&nbsp;...",
+           "cacheId": "b9UZMwMhGyMJ",
+           "formattedUrl": "1.usa.gov/1Sz1dGu",
+           "htmlFormattedUrl": "1.usa.gov/1Sz1dGu",
+           "pagemap": {
+            "metatags": [
+             {
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tilecolor": "#003C80",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "application-name": "Whitehouse",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:title": "HOJA INFORMATIVA: Durante la Feria de Ciencias de la Casa Blanca, el Presidente Obama realizó un llamado para que esta generación de estudiantes afronten los grandes retos de nuestros tiempo",
+              "og:url": "https://www.whitehouse.gov/the-press-office/2016/04/13/hoja-informativa-durante-la-feria-de-ciencias-de-la-casa-blanca-el",
+              "og:updated_time": "2016-04-13T10:52:22-04:00",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:type": "image/jpeg",
+              "og:image:width": "240",
+              "og:image:height": "240",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/the-press-office/2016/04/13/hoja-informativa-durante-la-feria-de-ciencias-de-la-casa-blanca-el",
+              "twitter:title": "HOJA INFORMATIVA: Durante la Feria de Ciencias de la Casa Blanca, el Presidente Obama realizó un llamado para que esta generación de estudiantes afronten los grandes retos de nuestros tiempo",
+              "twitter:image:width": "240",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "twitter:image:height": "240",
+              "article:published_time": "2016-04-13T06:00:00-04:00",
+              "article:modified_time": "2016-04-13T10:52:22-04:00",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "President Barack Obama Tours Storm Damage in New Jersey | The ...",
+           "htmlTitle": "President Barack Obama Tours Storm Damage in New Jersey | The ...",
+           "link": "http://1.usa.gov/Sqe0xS",
+           "displayLink": "1.usa.gov",
+           "snippet": "Marine One, carrying President Barack Obama and New Jersey Gov. Chris \nChristie, and a second helicopter, Nighthawk Two, fly over storm damage near ...",
+           "htmlSnippet": "Marine One, carrying President Barack Obama and New Jersey Gov. Chris \u003cbr\u003e\nChristie, and a second helicopter, Nighthawk Two, fly over storm damage near&nbsp;...",
+           "cacheId": "xoNss5XCHYoJ",
+           "formattedUrl": "1.usa.gov/Sqe0xS",
+           "htmlFormattedUrl": "1.usa.gov/Sqe0xS",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "275",
+              "height": "183",
+              "src": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRPL-INNoA_cnpeu2P0leKRWaDT0E_-JzbL01B4VBihbh8jEITS_gM8TajG"
+             }
+            ],
+            "metatags": [
+             {
+              "og:image": "http://www.whitehouse.gov/sites/default/files/image/image_file/p103112ps-0249.jpg",
+              "og:site_name": "The White House",
+              "og:title": "President Barack Obama Tours Storm Damage in New Jersey",
+              "og:description": "See the President's daily schedule, explore behind-the-scenes photos from inside the White House, and find out all the ways you can engage with the most interactive administration in our country's history.",
+              "abstract": "See the President's daily schedule, explore behind-the-scenes photos from inside the White House, and find out all the ways you can engage with the most interactive administration in our country's history.",
+              "og:type": "website",
+              "og:url": "https://www.whitehouse.gov/node/183881",
+              "fb:admins": "100000095507875"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.whitehouse.gov/sites/default/files/image/image_file/p103112ps-0249.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "We're on Snapchat: Add WhiteHouse | whitehouse.gov",
+           "htmlTitle": "We&#39;re on Snapchat: Add WhiteHouse | whitehouse.gov",
+           "link": "http://1.usa.gov/1neJA6V",
+           "displayLink": "1.usa.gov",
+           "snippet": "Jan 11, 2016 ... The White House launches an \"Official Story\" on Snapchat to provide a behind-\nthe-scenes glimpse of the Administration. At the White House, ...",
+           "htmlSnippet": "Jan 11, 2016 \u003cb\u003e...\u003c/b\u003e The White House launches an &quot;Official Story&quot; on Snapchat to provide a behind-\u003cbr\u003e\nthe-scenes glimpse of the Administration. At the White House,&nbsp;...",
+           "cacheId": "YMa4vM4e7qIJ",
+           "formattedUrl": "1.usa.gov/1neJA6V",
+           "htmlFormattedUrl": "1.usa.gov/1neJA6V",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "225",
+              "height": "225",
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-KraxC7GKHtKSnpxvA96alVEikzzXQF9yL5EMAV5zHvh-qFAPtkVjiql3"
+             }
+            ],
+            "Item": [
+             {
+              "title": "Watch President Obama's final State of the Union address.",
+              "num_replies": "0"
+             },
+             {
+              "title": "Read what the President is looking for in his next Supreme Court nominee.",
+              "num_replies": "0"
+             },
+             {
+              "title": "Take a look at America's three newest national monuments.",
+              "num_replies": "0"
+             }
+            ],
+            "metatags": [
+             {
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tilecolor": "#003C80",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "application-name": "Whitehouse",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:url": "https://www.whitehouse.gov/blog/2016/01/11/whitehouse-joins-snapchat",
+              "og:title": "We're on Snapchat: Add WhiteHouse",
+              "og:description": "The White House launches an \"Official Story\" on Snapchat to provide a behind-the-scenes glimpse of the Administration.",
+              "og:updated_time": "2016-01-11T09:50:35-05:00",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/WH%20Snapcode.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/WH%20Snapcode.jpg",
+              "og:image:type": "image/jpeg",
+              "og:image:width": "1024",
+              "og:image:height": "1024",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/blog/2016/01/11/whitehouse-joins-snapchat",
+              "twitter:title": "We're on Snapchat: Add WhiteHouse",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/WH%20Snapcode.jpg",
+              "twitter:image:width": "1024",
+              "twitter:image:height": "1024",
+              "article:published_time": "2016-01-11T09:45:00-05:00",
+              "article:modified_time": "2016-01-11T09:50:35-05:00",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/WH%20Snapcode.jpg"
+             }
+            ]
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Tue, 12 Jul 2016 20:34:49 GMT
+recorded_with: VCR 3.0.3

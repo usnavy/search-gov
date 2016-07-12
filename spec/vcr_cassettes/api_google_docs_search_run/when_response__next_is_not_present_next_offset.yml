@@ -1,0 +1,537 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/customsearch/v1?alt=json&cx=005675969675701682971:usi2bmqvnp8&key=***REMOVED***&lr=lang_en&q=healthy%20snack%20-site:www.usa.gov%20AND%20-site:kids.usa.gov%20site:usa.gov&quotaUser=USASearch&safe=medium
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - USASearch
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Tue, 12 Jul 2016 20:34:48 GMT
+      Date:
+      - Tue, 12 Jul 2016 20:34:48 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"ZK6WcJ2_cdL-1Kol5cpaPQsD0mI/qwGlQSqiUZNpO_LfVWI5SoOsfFs"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '27066'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="36,35,34,33,32,31,30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "customsearch#search",
+         "url": {
+          "type": "application/json",
+          "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+         },
+         "queries": {
+          "request": [
+           {
+            "title": "Google Custom Search - healthy snack -site:www.usa.gov AND -site:kids.usa.gov site:usa.gov",
+            "totalResults": "365",
+            "searchTerms": "healthy snack -site:www.usa.gov AND -site:kids.usa.gov site:usa.gov",
+            "count": 10,
+            "startIndex": 1,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ],
+          "nextPage": [
+           {
+            "title": "Google Custom Search - healthy snack -site:www.usa.gov AND -site:kids.usa.gov site:usa.gov",
+            "totalResults": "365",
+            "searchTerms": "healthy snack -site:www.usa.gov AND -site:kids.usa.gov site:usa.gov",
+            "count": 10,
+            "startIndex": 11,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ]
+         },
+         "context": {
+          "title": "DigitalGov Search"
+         },
+         "searchInformation": {
+          "searchTime": 0.31126,
+          "formattedSearchTime": "0.31",
+          "totalResults": "365",
+          "formattedTotalResults": "365"
+         },
+         "items": [
+          {
+           "kind": "customsearch#result",
+           "title": "Labeling & Nutrition \u003e Your Two Favorite Things: Snacks and ...",
+           "htmlTitle": "Labeling &amp; Nutrition &gt; Your Two Favorite Things: \u003cb\u003eSnacks\u003c/b\u003e and ...",
+           "link": "http://go.usa.gov/cGnBG",
+           "displayLink": "go.usa.gov",
+           "snippet": "May 22, 2016 ... Play two brand spankin' new games that test your knowledge about making \nhealthy snack choices: Label Lingo – Answer challenge questions ...",
+           "htmlSnippet": "May 22, 2016 \u003cb\u003e...\u003c/b\u003e Play two brand spankin&#39; new games that test your knowledge about making \u003cbr\u003e\n\u003cb\u003ehealthy snack\u003c/b\u003e choices: Label Lingo – Answer challenge questions&nbsp;...",
+           "cacheId": "Ia7hun6B0FUJ",
+           "formattedUrl": "go.usa.gov/cGnBG",
+           "htmlFormattedUrl": "go.usa.gov/cGnBG",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "240",
+              "height": "144",
+              "src": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ0X8fEGohHDxjxJfukqtW_-EH86ZE_B9EXTtpZwyF1_c1E6BpDZAbrM3k"
+             }
+            ],
+            "metatags": [
+             {
+              "id": "UCM490204",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition - Your Two Favorite Things: Snacks and Games!  Visit the New Snack Shack Today",
+              "dc.type": "WebContent",
+              "dc.description": "In the virtual world of Whyville, young Ã¢â‚¬Å“citizensÃ¢â‚¬ï¿½ can practice label reading in the online community and develop skills for making healthy snack choices in the real world. Visit today, and play the new Label Lingo and Snack Sort games in the Snack Shack!",
+              "dc.language": "en",
+              "posted": "2016-03-15",
+              "index_date": "2016-05-22",
+              "dc.publisher": "Center for Food Safety and Applied Nutrition",
+              "dc.audience": "Consumers, Educators",
+              "dc.creator": "Center for Food Safety and Applied Nutrition",
+              "archive": "No",
+              "search_topic": "Food",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.fda.gov/ucm/groups/fdagov-public/documents/image/ucm489562.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Recalls, Market Withdrawals, & Safety Alerts \u003e Kind Healthy Snacks ...",
+           "htmlTitle": "Recalls, Market Withdrawals, &amp; Safety Alerts &gt; Kind \u003cb\u003eHealthy Snacks\u003c/b\u003e ...",
+           "link": "http://1.usa.gov/SRsIE2",
+           "displayLink": "1.usa.gov",
+           "snippet": "May 21, 2014 ... NEW YORK - KIND Healthy Snacks (KIND) is voluntarily recalling STRONG and \nKIND bars as well as KIND Healthy Grains Maple Pumpkin ...",
+           "htmlSnippet": "May 21, 2014 \u003cb\u003e...\u003c/b\u003e NEW YORK - KIND \u003cb\u003eHealthy Snacks\u003c/b\u003e (KIND) is voluntarily recalling STRONG and \u003cbr\u003e\nKIND bars as well as KIND \u003cb\u003eHealthy\u003c/b\u003e Grains Maple Pumpkin&nbsp;...",
+           "cacheId": "jdFWK5uxhnAJ",
+           "formattedUrl": "1.usa.gov/SRsIE2",
+           "htmlFormattedUrl": "1.usa.gov/SRsIE2",
+           "pagemap": {
+            "metatags": [
+             {
+              "id": "UCM398538",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Recalls, Market Withdrawals, & Safety Alerts - Kind Healthy Snacks Issues Allergy Alert Due to Potential Presence of Peanut Protein in Strong and Kind Bars and Kind Healthy Grains Maple Pumpkin Seeds Bars",
+              "dc.type": "WebContent",
+              "dc.description": "NEW YORK - KIND Healthy Snacks (KIND) is voluntarily recalling STRONG and KIND bars as well as KIND Healthy Grains Maple Pumpkin Seeds with Sea Salt bars after learning that, contrary to KIND's strict quality specifications, its supplier roasted pumpkin seeds using equipment that had also been used to roast peanuts. 'While we know our supplier conducted rigorous allergen cleans before roasting the seeds, they did not perform tests to validate that no peanut particles remained, and KIND takes no chances when it comes to the safety of our consumers,' said John Leahy, President of KIND.",
+              "dc.language": "en",
+              "posted": "2014-05-22",
+              "index_date": "2016-05-27",
+              "dc.publisher": "Office of Regulatory Affairs,Office of the Commissioner",
+              "dc.creator": "Office of Regulatory Affairs,Office of the Commissioner",
+              "archive": "Yes",
+              "search_topic": "Food|Public Information & Education",
+              "brand_name": "STRONG and KIND",
+              "product_description": "Bars",
+              "recall_desc": "Undeclared peanuts",
+              "company_name": "KIND Healthy Snacks",
+              "recall_photo": "ucm398543",
+              "recall_category": "Food",
+              "dc.subject": "Major Food Product Recall, Food & Beverages, Food Safety, Food Allergens",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "A Lifetime of Good Health: Your Guide to Staying Healthy ...",
+           "htmlTitle": "A Lifetime of Good Health: Your Guide to Staying \u003cb\u003eHealthy\u003c/b\u003e ...",
+           "link": "http://publications.usa.gov/USAPubs.php?PubID=260",
+           "displayLink": "publications.usa.gov",
+           "snippet": "Your health needs will change throughout the years. This guide offers you a plan \nfor health at all stages of life. It begins with healthy behaviors to prevent and ...",
+           "htmlSnippet": "Your health needs will change throughout the years. This guide offers you a plan \u003cbr\u003e\nfor health at all stages of life. It begins with \u003cb\u003ehealthy\u003c/b\u003e behaviors to prevent and&nbsp;...",
+           "cacheId": "g61_Bd4PXm8J",
+           "formattedUrl": "publications.usa.gov/USAPubs.php?PubID=260",
+           "htmlFormattedUrl": "publications.usa.gov/USAPubs.php?PubID=260"
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Recalls, Market Withdrawals, & Safety Alerts \u003e Creative Snacks Co ...",
+           "htmlTitle": "Recalls, Market Withdrawals, &amp; Safety Alerts &gt; Creative \u003cb\u003eSnacks\u003c/b\u003e Co ...",
+           "link": "http://1.usa.gov/1Q1qoqj",
+           "displayLink": "1.usa.gov",
+           "snippet": "May 5, 2016 ... Creative Snacks Co. of Greensboro, North Carolina is recalling ... Although \nhealthy individuals may suffer only short-term symptoms such as ...",
+           "htmlSnippet": "May 5, 2016 \u003cb\u003e...\u003c/b\u003e Creative \u003cb\u003eSnacks\u003c/b\u003e Co. of Greensboro, North Carolina is recalling ... Although \u003cbr\u003e\n\u003cb\u003ehealthy\u003c/b\u003e individuals may suffer only short-term symptoms such as&nbsp;...",
+           "cacheId": "Vqq7JJXcKQ8J",
+           "formattedUrl": "1.usa.gov/1Q1qoqj",
+           "htmlFormattedUrl": "1.usa.gov/1Q1qoqj",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "194",
+              "height": "259",
+              "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT7QsjJCdc1QcfXGWmEIfkQqJpsQUfuv6Mm0MUSs5wVyfoYd3gT8GVpIPhc"
+             }
+            ],
+            "metatags": [
+             {
+              "id": "UCM499725",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Recalls, Market Withdrawals, & Safety Alerts - Creative Snacks Co. Issues Recall on Sunflower Seeds and Trail Mixes Including Sunflower Seeds",
+              "dc.type": "WebContent",
+              "dc.description": "Creative Snacks Co. of Greensboro, North Carolina is recalling specific lot codes of bulk and packaged sunflower seed products due to the potential presence of Listeria monocytogenes. We have been notified by SunOpta, our sunflower seed supplier, that the company has issued a voluntary recall for sunflower seeds that were processed in their Crookston, Minnesota facility between February 1, 2016 and February 19, 2016.",
+              "dc.language": "en",
+              "posted": "2016-05-06",
+              "index_date": "2016-06-13",
+              "dc.publisher": "Office of Regulatory Affairs",
+              "dc.creator": "Office of Regulatory Affairs",
+              "archive": "No",
+              "search_topic": "Food|Public Information & Education",
+              "brand_name": "Creative Snacks Co., Heart Smart Mix, The Fresh Market, Plentiful Planet, and others",
+              "product_description": "Sunflower Seed Products bulk and packaged",
+              "recall_desc": "Listeria monocytogenes",
+              "company_name": "Creative Snacks Co.",
+              "recall_category": "Food",
+              "dc.subject": "Major Food Product Recall, Food & Beverages, Food Safety",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.fda.gov/ucm/groups/fdagov-public/documents/image/ucm499733.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Navy Marine Corps Public Health Center - Healthy Eating for Your ...",
+           "htmlTitle": "Navy Marine Corps Public Health Center - \u003cb\u003eHealthy\u003c/b\u003e Eating for Your ...",
+           "link": "http://1.usa.gov/1Ci4Ej4",
+           "displayLink": "1.usa.gov",
+           "snippet": "Healthy eating is one of the most effective ways to improve your health, but what \n... Stocking up on healthy snacks - Keep healthy, easily accessible snacks on ...",
+           "htmlSnippet": "\u003cb\u003eHealthy\u003c/b\u003e eating is one of the most effective ways to improve your health, but what \u003cbr\u003e\n... Stocking up on \u003cb\u003ehealthy snacks\u003c/b\u003e - Keep \u003cb\u003ehealthy\u003c/b\u003e, easily accessible \u003cb\u003esnacks\u003c/b\u003e on&nbsp;...",
+           "cacheId": "HfLfb-8Z3xUJ",
+           "formattedUrl": "1.usa.gov/1Ci4Ej4",
+           "htmlFormattedUrl": "1.usa.gov/1Ci4Ej4",
+           "pagemap": {
+            "metatags": [
+             {
+              "progid": "SharePoint.WebPartPage.Document",
+              "p:domain_verify": "dbc563d7d8572560bc2f76a6df68e7b1"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Let's Move! Child Care Reaches Over 12,000 Providers Committed ...",
+           "htmlTitle": "Let&#39;s Move! Child Care Reaches Over 12,000 Providers Committed ...",
+           "link": "http://1.usa.gov/1mNLs0O",
+           "displayLink": "1.usa.gov",
+           "snippet": "Feb 28, 2014 ... The First Lady then joined children in another classroom for healthy snack time. “\nHealthier eating and regular physical activity are becoming the ...",
+           "htmlSnippet": "Feb 28, 2014 \u003cb\u003e...\u003c/b\u003e The First Lady then joined children in another classroom for \u003cb\u003ehealthy snack\u003c/b\u003e time. “\u003cbr\u003e\n\u003cb\u003eHealthier\u003c/b\u003e eating and regular physical activity are becoming the&nbsp;...",
+           "cacheId": "1r5Q8XOp6egJ",
+           "formattedUrl": "1.usa.gov/1mNLs0O",
+           "htmlFormattedUrl": "1.usa.gov/1mNLs0O",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "267",
+              "height": "189",
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP4sG-xzGL0tiJcEg9tZq5OQQ7JngN_ulxAjE0Hr_X4SC0US6PQf8-HLk"
+             }
+            ],
+            "Item": [
+             {
+              "title": "Watch President Obama's final State of the Union address.",
+              "num_replies": "0"
+             },
+             {
+              "title": "Read what the President is looking for in his next Supreme Court nominee.",
+              "num_replies": "0"
+             },
+             {
+              "title": "Take a look at America's three newest national monuments.",
+              "num_replies": "0"
+             }
+            ],
+            "metatags": [
+             {
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tilecolor": "#003C80",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "application-name": "Whitehouse",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:url": "https://www.whitehouse.gov/blog/2014/02/28/let-s-move-child-care-reaches-over-12000-providers-committed-instilling-healthy-habi",
+              "og:title": "Let’s Move! Child Care Reaches Over 12,000 Providers Committed to Instilling Healthy Habits for Life",
+              "og:description": "First Lady Michelle Obama visited a local child care center to highlight the progress of Let’s Move! Child Care and recognize a new child care provider signing on to support the program. Since launching in 2011, over 12,000 providers have committed to fostering healthy environments and instilling healthy habits among our nation’s preschoolers that will last a lifetime.",
+              "og:updated_time": "2015-08-12T19:02:18-04:00",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_blog.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_blog.jpg",
+              "og:image:type": "image/jpeg",
+              "og:image:width": "240",
+              "og:image:height": "240",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/blog/2014/02/28/let-s-move-child-care-reaches-over-12000-providers-committed-instilling-healthy-habi",
+              "twitter:title": "Let’s Move! Child Care Reaches Over 12,000 Providers Committed to Instilling Healthy Habits for Life",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_blog.jpg",
+              "twitter:image:width": "240",
+              "twitter:image:height": "240",
+              "article:published_time": "2014-02-28T11:30:45-05:00",
+              "article:modified_time": "2015-08-12T19:02:18-04:00",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/default/files/image/image_file/022714_flotus_letsmove.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "First Lady Michelle Obama Applauds Investments in Healthier Out-of ...",
+           "htmlTitle": "First Lady Michelle Obama Applauds Investments in \u003cb\u003eHealthier\u003c/b\u003e Out-of ...",
+           "link": "http://1.usa.gov/1jxC8wE",
+           "displayLink": "1.usa.gov",
+           "snippet": "Feb 25, 2014 ... BGCA and NRPA will provide 5 million children with healthy snacks and physical \nactivity during the critical few hours between when kids leave ...",
+           "htmlSnippet": "Feb 25, 2014 \u003cb\u003e...\u003c/b\u003e BGCA and NRPA will provide 5 million children with \u003cb\u003ehealthy snacks\u003c/b\u003e and physical \u003cbr\u003e\nactivity during the critical few hours between when kids leave&nbsp;...",
+           "cacheId": "zyq2fzylewwJ",
+           "formattedUrl": "1.usa.gov/1jxC8wE",
+           "htmlFormattedUrl": "1.usa.gov/1jxC8wE",
+           "pagemap": {
+            "metatags": [
+             {
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tilecolor": "#003C80",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "application-name": "Whitehouse",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:title": "First Lady Michelle Obama Applauds Investments in Healthier Out-of-School Programs That Will Impact 5 Million Kids",
+              "og:url": "https://www.whitehouse.gov/the-press-office/2014/02/25/first-lady-michelle-obama-applauds-investments-healthier-out-school-prog",
+              "og:description": "Boys & Girls Clubs of America and National Recreation and Park Association",
+              "og:updated_time": "2015-07-28T13:27:04-04:00",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:type": "image/jpeg",
+              "og:image:width": "240",
+              "og:image:height": "240",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/the-press-office/2014/02/25/first-lady-michelle-obama-applauds-investments-healthier-out-school-prog",
+              "twitter:title": "First Lady Michelle Obama Applauds Investments in Healthier Out-of-School Programs That Will Impact 5 Million Kids",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "twitter:image:width": "240",
+              "twitter:image:height": "240",
+              "article:published_time": "2014-02-25T12:37:00-05:00",
+              "article:modified_time": "2015-07-28T13:27:04-04:00",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Growing Healthy Schools Month | osse",
+           "htmlTitle": "Growing \u003cb\u003eHealthy\u003c/b\u003e Schools Month | osse",
+           "link": "http://1.usa.gov/1hPeYX9",
+           "displayLink": "1.usa.gov",
+           "snippet": "There are many community based organizations that offer healthy cooking \ndemos and teachers can also act as chefs for the day and prepare a healthy \nsnack ...",
+           "htmlSnippet": "There are many community based organizations that offer \u003cb\u003ehealthy\u003c/b\u003e cooking \u003cbr\u003e\ndemos and teachers can also act as chefs for the day and prepare a \u003cb\u003ehealthy\u003c/b\u003e \u003cbr\u003e\n\u003cb\u003esnack\u003c/b\u003e&nbsp;...",
+           "cacheId": "XoN-PUOSYTYJ",
+           "formattedUrl": "1.usa.gov/1hPeYX9",
+           "htmlFormattedUrl": "1.usa.gov/1hPeYX9",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "164",
+              "height": "124",
+              "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpF33oLXIHU66QNB7ZDlVvzXfGIwposGnaASgLPAoN321VRynIa5aBnqM"
+             }
+            ],
+            "Item": [
+             {
+              "encoded": "Growing Healthy Schools Month celebrates the DC Healthy Schools Act in public schools throughout the District. During the annual celebration, public school staff collaborate with local community..."
+             }
+            ],
+            "metatags": [
+             {
+              "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no",
+              "sioc:num_replies": "0",
+              "dc:title": "Growing Healthy Schools Month"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://osse.dc.gov/sites/default/files/styles/medium/public/dc/sites/osse/service_content/images/growing_healthy_schools_month_web.png?itok=QwS5oflR"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Warning Letters \u003e KIND, LLC 3/17/15",
+           "htmlTitle": "Warning Letters &gt; KIND, LLC 3/17/15",
+           "link": "http://1.usa.gov/1CFQdQp",
+           "displayLink": "1.usa.gov",
+           "snippet": "Apr 25, 2016 ... Then there's healthy and tasty” and “all of our snacks are pretty much the nirvana \nof healthful tastiness.” In addition, your webpage for the Kind ...",
+           "htmlSnippet": "Apr 25, 2016 \u003cb\u003e...\u003c/b\u003e Then there&#39;s \u003cb\u003ehealthy\u003c/b\u003e and tasty” and “all of our \u003cb\u003esnacks\u003c/b\u003e are pretty much the nirvana \u003cbr\u003e\nof healthful tastiness.” In addition, your webpage for the Kind&nbsp;...",
+           "cacheId": "E4pg3lIt2QMJ",
+           "formattedUrl": "1.usa.gov/1CFQdQp",
+           "htmlFormattedUrl": "1.usa.gov/1CFQdQp",
+           "pagemap": {
+            "metatags": [
+             {
+              "id": "UCM440942",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Warning Letters - KIND, LLC 3/17/15",
+              "dc.type": "WebContent",
+              "dc.description": "Food Labeling/Misbranded",
+              "dc.language": "en",
+              "posted": "2015-04-14",
+              "index_date": "2016-04-25",
+              "archive": "No",
+              "search_topic": "Warning Letters|Food",
+              "companyname": "KIND, LLC",
+              "issuingoffice": "Center for Food Safety and Applied Nutrition",
+              "letterissuedate": "2015-03-17",
+              "closeoutdate": "4/20/16 12:00 AM",
+              "hascloseoutletter": "Yes",
+              "hasresponseletter": "No",
+              "hasposteddate": "4/25/16 3:26 PM",
+              "dc.subject": "Food Labeling/Misbranded",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "The White House and USDA announce School Wellness Standards ...",
+           "htmlTitle": "The White House and USDA announce School Wellness Standards ...",
+           "link": "http://1.usa.gov/1hTc8ub",
+           "displayLink": "1.usa.gov",
+           "snippet": "Feb 25, 2014 ... The bipartisan Healthy, Hunger-Free Kids Act of 2010 mandated that the ... in \nschools are consistent with the recently-released Smart Snacks in ...",
+           "htmlSnippet": "Feb 25, 2014 \u003cb\u003e...\u003c/b\u003e The bipartisan \u003cb\u003eHealthy\u003c/b\u003e, Hunger-Free Kids Act of 2010 mandated that the ... in \u003cbr\u003e\nschools are consistent with the recently-released Smart \u003cb\u003eSnacks\u003c/b\u003e in&nbsp;...",
+           "cacheId": "vXQH0R8EX0AJ",
+           "formattedUrl": "1.usa.gov/1hTc8ub",
+           "htmlFormattedUrl": "1.usa.gov/1hTc8ub",
+           "pagemap": {
+            "metatags": [
+             {
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tilecolor": "#003C80",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "application-name": "Whitehouse",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:title": "The White House and USDA announce School Wellness Standards",
+              "og:url": "https://www.whitehouse.gov/the-press-office/2014/02/25/white-house-and-usda-announce-school-wellness-standards",
+              "og:description": "First Lady Michelle Obama and U.S.",
+              "og:updated_time": "2015-07-28T13:28:10-04:00",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:type": "image/jpeg",
+              "og:image:width": "240",
+              "og:image:height": "240",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/the-press-office/2014/02/25/white-house-and-usda-announce-school-wellness-standards",
+              "twitter:title": "The White House and USDA announce School Wellness Standards",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "twitter:image:width": "240",
+              "twitter:image:height": "240",
+              "article:published_time": "2014-02-25T09:09:00-05:00",
+              "article:modified_time": "2015-07-28T13:28:10-04:00",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg"
+             }
+            ]
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Tue, 12 Jul 2016 20:34:48 GMT
+recorded_with: VCR 3.0.3

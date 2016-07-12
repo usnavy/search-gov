@@ -4,10 +4,8 @@ describe ApiGoogleDocsSearch do
   fixtures :affiliates
 
   let(:affiliate) { affiliates(:usagov_affiliate) }
-  let(:api_key) { AzureEngine::DEFAULT_AZURE_HOSTED_PASSWORD }
   let(:search_params) do
     { affiliate: affiliate,
-      api_key: api_key,
       enable_highlighting: true,
       limit: 20,
       dc: 1,
@@ -28,7 +26,6 @@ describe ApiGoogleDocsSearch do
       GoogleWebSearch.should_receive(:new).
         with(enable_highlighting: false,
              language: 'en',
-             limit: 20,
              next_offset_within_limit: true,
              offset: 10,
              password: 'my_api_key',
@@ -36,8 +33,8 @@ describe ApiGoogleDocsSearch do
 
       described_class.new affiliate: affiliate,
                           api_key: 'my_api_key',
+                          language: 'en',
                           enable_highlighting: false,
-                          limit: 25,
                           dc: 1,
                           next_offset_within_limit: true,
                           offset: 10,
@@ -102,11 +99,11 @@ describe ApiGoogleDocsSearch do
       it 'highlights title and description' do
         result = search.results.first
         expect(result.title).to match(/\ue000.+\ue001/)
-        expect(result.description).to match(/\ue000.+\ue001/)
-        expect(result.url).to match(URI.regexp)
+        expect(result.content).to match(/\ue000.+\ue001/)
+        expect(result.unescaped_url).to match(URI.regexp)
       end
 
-      its(:next_offset) { should eq(20) }
+      its(:next_offset) { should eq(10) }
       its(:modules) { should include('GWEB') }
     end
 
@@ -118,17 +115,17 @@ describe ApiGoogleDocsSearch do
       before { search.run }
 
       it 'returns results' do
-        expect(search.results.count).to eq(20)
+        expect(search.results.count).to eq(10)
       end
 
       it 'highlights title and description' do
         result = search.results.first
         expect(result.title).to_not match(/\ue000.+\ue001/)
-        expect(result.description).to_not match(/\ue000.+\ue001/)
+        expect(result.content).to_not match(/\ue000.+\ue001/)
       end
 
-      its(:next_offset) { should eq(20) }
-      its(:modules) { should include('AWEB') }
+      its(:next_offset) { should eq(10) }
+      its(:modules) { should include('GWEB') }
     end
 
     context 'when response _next is not present' do
@@ -140,7 +137,7 @@ describe ApiGoogleDocsSearch do
                             dc: 1,
                             next_offset_within_limit: true,
                             offset: 0,
-                            query: 'healthy snack'
+                            query: 'gss no next'
       end
 
       before do
@@ -161,23 +158,23 @@ describe ApiGoogleDocsSearch do
       before { search.run }
 
       it 'returns results' do
-        expect(search.results.count).to eq(20)
+        expect(search.results.count).to eq(10)
       end
 
       it 'highlights title and description' do
         result = search.results.first
         expect(result.title).to match(/\ue000.+\ue001/)
-        expect(result.description).to match(/\ue000.+\ue001/)
+        expect(result.content).to match(/\ue000.+\ue001/)
       end
     end
 
-    context 'when Azure response contains empty results' do
+    context 'when Google response contains empty results' do
       subject(:search) do
         described_class.new affiliate: affiliate,
                             api_key: 'my_api_key',
+                            cx: 'my_cx',
                             enable_highlighting: true,
-                            limit: 20,
-                            dc: 1,
+                            limit: 10,
                             next_offset_within_limit: true,
                             offset: 0,
                             query: 'mango smoothie'
@@ -196,7 +193,7 @@ describe ApiGoogleDocsSearch do
     before { search.run }
 
     it 'returns results' do
-      expect(search.as_json[:docs][:results].count).to eq(20)
+      expect(search.as_json[:docs][:results].count).to eq(10)
     end
 
     it 'highlights title and description' do

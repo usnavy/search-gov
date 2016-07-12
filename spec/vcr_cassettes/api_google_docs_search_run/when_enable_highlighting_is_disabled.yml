@@ -1,0 +1,545 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/customsearch/v1?alt=json&cx=005675969675701682971:usi2bmqvnp8&key=***REMOVED***&lr=lang_en&q=nutrition%20site:usa.gov&quotaUser=USASearch&safe=medium
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - USASearch
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Tue, 12 Jul 2016 20:34:46 GMT
+      Date:
+      - Tue, 12 Jul 2016 20:34:46 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"ZK6WcJ2_cdL-1Kol5cpaPQsD0mI/W7g8RBqLngbm609f3mHpDpndFT8"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '24804'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="36,35,34,33,32,31,30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "customsearch#search",
+         "url": {
+          "type": "application/json",
+          "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+         },
+         "queries": {
+          "request": [
+           {
+            "title": "Google Custom Search - nutrition site:usa.gov",
+            "totalResults": "3390",
+            "searchTerms": "nutrition site:usa.gov",
+            "count": 10,
+            "startIndex": 1,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ],
+          "nextPage": [
+           {
+            "title": "Google Custom Search - nutrition site:usa.gov",
+            "totalResults": "3390",
+            "searchTerms": "nutrition site:usa.gov",
+            "count": 10,
+            "startIndex": 11,
+            "language": "lang_en",
+            "inputEncoding": "utf8",
+            "outputEncoding": "utf8",
+            "safe": "medium",
+            "cx": "005675969675701682971:usi2bmqvnp8"
+           }
+          ]
+         },
+         "context": {
+          "title": "DigitalGov Search"
+         },
+         "searchInformation": {
+          "searchTime": 0.288933,
+          "formattedSearchTime": "0.29",
+          "totalResults": "3390",
+          "formattedTotalResults": "3,390"
+         },
+         "items": [
+          {
+           "kind": "customsearch#result",
+           "title": "Press Announcements \u003e FDA modernizes Nutrition Facts label for ...",
+           "htmlTitle": "Press Announcements &gt; FDA modernizes \u003cb\u003eNutrition\u003c/b\u003e Facts label for ...",
+           "link": "http://1.usa.gov/1ODAIin",
+           "displayLink": "1.usa.gov",
+           "snippet": "May 20, 2016 ... Today, the U.S. Food and Drug Administration took a major step in making sure \nconsumers have updated nutritional information for most ...",
+           "htmlSnippet": "May 20, 2016 \u003cb\u003e...\u003c/b\u003e Today, the U.S. Food and Drug Administration took a major step in making sure \u003cbr\u003e\nconsumers have updated \u003cb\u003enutritional\u003c/b\u003e information for most&nbsp;...",
+           "cacheId": "-1xidExKS_AJ",
+           "formattedUrl": "1.usa.gov/1ODAIin",
+           "htmlFormattedUrl": "1.usa.gov/1ODAIin",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "256",
+              "height": "144",
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8b_Q5mFMAt3ZS0bwgUsh26BhypZL_eWrmBceVLDidfrAlDyMbpg2FQBM"
+             }
+            ],
+            "metatags": [
+             {
+              "id": "UCM502182",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Press Announcements - FDA modernizes Nutrition Facts label for packaged foods",
+              "dc.type": "WebContent",
+              "dc.description": "FDA modernizes Nutrition Facts label for packaged foods",
+              "dc.language": "en",
+              "posted": "2016-05-20",
+              "index_date": "2016-05-20",
+              "dc.publisher": "Office of the Commissioner",
+              "dc.audience": "Press",
+              "dc.creator": "Office of the Commissioner",
+              "archive": "No",
+              "search_topic": "Public Information & Education|Food",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://i.ytimg.com/vi/OANhS-MZoAk/mqdefault.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Labeling & Nutrition \u003e Changes to the Nutrition Facts Label",
+           "htmlTitle": "Labeling &amp; \u003cb\u003eNutrition\u003c/b\u003e &gt; Changes to the \u003cb\u003eNutrition\u003c/b\u003e Facts Label",
+           "link": "http://1.usa.gov/22i8MbF",
+           "displayLink": "1.usa.gov",
+           "snippet": "The FDA finalized the new Nutrition Facts label for packaged foods to reflect new \nscientific information, including the link between diet and chronic diseases ...",
+           "htmlSnippet": "The FDA finalized the new \u003cb\u003eNutrition\u003c/b\u003e Facts label for packaged foods to reflect new \u003cbr\u003e\nscientific information, including the link between diet and chronic diseases&nbsp;...",
+           "cacheId": "YE4GwGjeatQJ",
+           "formattedUrl": "1.usa.gov/22i8MbF",
+           "htmlFormattedUrl": "1.usa.gov/22i8MbF",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "229",
+              "height": "220",
+              "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQGcL6czdsO0TS3CeH3eZE0qxNBcQ_d5J_5hwDzyxxJP-KGszJSLD7U20Km"
+             }
+            ],
+            "metatags": [
+             {
+              "id": "UCM385663",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition - Changes to the Nutrition Facts Label",
+              "dc.type": "WebContent",
+              "dc.description": "The FDA finalized the new Nutrition Facts label for packaged foods to reflect new scientific information, including the link between diet and chronic diseases such as obesity and heart disease. The new label will make it easier for consumers to make better informed food choices.",
+              "dc.language": "en",
+              "posted": "2014-02-27",
+              "index_date": "2016-06-27",
+              "dc.publisher": "Center for Food Safety and Applied Nutrition",
+              "dc.audience": "Public",
+              "dc.creator": "Center for Food Safety and Applied Nutrition",
+              "archive": "No",
+              "search_topic": "Food",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.fda.gov/ucm/groups/fdagov-public/documents/image/ucm501515.png"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Small Business Nutrition Labeling Exemption Guidance",
+           "htmlTitle": "Small Business \u003cb\u003eNutrition\u003c/b\u003e Labeling Exemption Guidance",
+           "link": "http://1.usa.gov/1J32fs3",
+           "displayLink": "1.usa.gov",
+           "snippet": "The nutrition labeling exemptions found in 21 CFR 101.9(j)(1) and 21 CFR \n101.36(h)(1) apply to retailers with annual gross sales of not more than $500,000\n, ...",
+           "htmlSnippet": "The \u003cb\u003enutrition\u003c/b\u003e labeling exemptions found in 21 CFR 101.9(j)(1) and 21 CFR \u003cbr\u003e\n101.36(h)(1) apply to retailers with annual gross sales of not more than $500,000\u003cbr\u003e\n,&nbsp;...",
+           "cacheId": "xiLq0-so93gJ",
+           "formattedUrl": "1.usa.gov/1J32fs3",
+           "htmlFormattedUrl": "1.usa.gov/1J32fs3",
+           "pagemap": {
+            "metatags": [
+             {
+              "id": "UCM053857",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition - Small Business Nutrition Labeling Exemption Guidance",
+              "dc.type": "WebContent",
+              "dc.description": "Small Business Nutrition Labeling Exemption requirements and form instructions",
+              "dc.language": "en",
+              "posted": "2009-05-06",
+              "index_date": "2016-07-01",
+              "dc.publisher": "Center for Food Safety and Applied Nutrition",
+              "dc.audience": "FDA Employee, Government, Industry Representatives",
+              "dc.creator": "Center for Food Safety and Applied Nutrition",
+              "old_url": "http://www.fda.gov/Food/GuidanceComplianceRegulatoryInformation/GuidanceDocuments/FoodLabelingNutrition/ucm053857.htm",
+              "archive": "No",
+              "search_topic": "Food",
+              "dc.subject": "Food & Beverages, Guidance, Small Entity Compliance Guide, Final, Labeling",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Labeling & Nutrition \u003e Nutrition Information for Raw Fruits ...",
+           "htmlTitle": "Labeling &amp; \u003cb\u003eNutrition\u003c/b\u003e &gt; \u003cb\u003eNutrition\u003c/b\u003e Information for Raw Fruits ...",
+           "link": "http://1.usa.gov/15ufSOy",
+           "displayLink": "1.usa.gov",
+           "snippet": "Mar 1, 2016 ... FDA provides downloadable/printable posters for retail stores that sell raw fruits, \nvegetables, and fish to provide point-of-purchase nutrition ...",
+           "htmlSnippet": "Mar 1, 2016 \u003cb\u003e...\u003c/b\u003e FDA provides downloadable/printable posters for retail stores that sell raw fruits, \u003cbr\u003e\nvegetables, and fish to provide point-of-purchase \u003cb\u003enutrition\u003c/b\u003e&nbsp;...",
+           "cacheId": "6-EO4MfwmWYJ",
+           "formattedUrl": "1.usa.gov/15ufSOy",
+           "htmlFormattedUrl": "1.usa.gov/15ufSOy",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "160",
+              "height": "207",
+              "src": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQZlIVnSOPurtFi-PJDuSAZnUtfqszfdja94d9IvuCpkLQcsRGSVCHvfCyT"
+             }
+            ],
+            "metatags": [
+             {
+              "id": "UCM063367",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition - Nutrition Information for Raw Fruits, Vegetables, and Fish",
+              "dc.type": "WebContent",
+              "dc.description": "FDA provides downloadable/printable posters for retail stores that sell raw fruits, vegetables, and fish to provide point-of-purchase nutrition information.",
+              "dc.language": "en",
+              "posted": "2009-02-02",
+              "index_date": "2016-05-24",
+              "dc.publisher": "Center for Food Safety and Applied Nutrition",
+              "dc.audience": "Industry Representatives",
+              "dc.creator": "Center for Food Safety and Applied Nutrition",
+              "old_url": "http://www.fda.gov/Food/LabelingNutrition/FoodLabelingGuidanceRegulatoryInformation/InformationforRestaurantsRetailEstablishments/ucm063367.htm",
+              "archive": "No",
+              "search_topic": "Food",
+              "dc.subject": "Food Safety, Food Ingredients & Packaging, Food Preparation, Nutrition",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.fda.gov/ucm/groups/fdagov-public/documents/image/ucm063473.jpg"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Labeling & Nutrition \u003e Small Business Nutrition Labeling Exemption",
+           "htmlTitle": "Labeling &amp; \u003cb\u003eNutrition\u003c/b\u003e &gt; Small Business \u003cb\u003eNutrition\u003c/b\u003e Labeling Exemption",
+           "link": "http://go.usa.gov/ch3F3",
+           "displayLink": "go.usa.gov",
+           "snippet": "Dec 12, 2014 ... Learn about FDA's Small Business Nutrition Labeling Exemption, including \ninformation on how to complete online and paper submissions.",
+           "htmlSnippet": "Dec 12, 2014 \u003cb\u003e...\u003c/b\u003e Learn about FDA&#39;s Small Business \u003cb\u003eNutrition\u003c/b\u003e Labeling Exemption, including \u003cbr\u003e\ninformation on how to complete online and paper submissions.",
+           "cacheId": "3wErl_W6RqUJ",
+           "formattedUrl": "go.usa.gov/ch3F3",
+           "htmlFormattedUrl": "go.usa.gov/ch3F3",
+           "pagemap": {
+            "metatags": [
+             {
+              "id": "UCM2006867",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition - Small Business Nutrition Labeling Exemption",
+              "dc.type": "WebContent",
+              "dc.description": "Learn about FDA's Small Business Nutrition Labeling Exemption, including information on how to complete online and paper submissions.",
+              "dc.language": "en",
+              "posted": "2008-10-28",
+              "index_date": "2016-01-05",
+              "dc.publisher": "Center for Food Safety and Applied Nutrition",
+              "dc.audience": "Industry Representatives, Small manufacturers, Government",
+              "dc.creator": "Center for Food Safety and Applied Nutrition",
+              "old_url": "http://www.fda.gov/Food/LabelingNutrition/FoodLabelingGuidanceRegulatoryInformation/SmallBusinessNutritionLabelingExemption/default.htm",
+              "archive": "No",
+              "search_topic": "Food",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Labeling & Nutrition",
+           "htmlTitle": "Labeling &amp; \u003cb\u003eNutrition\u003c/b\u003e",
+           "link": "http://1.usa.gov/1elHGM5",
+           "displayLink": "1.usa.gov",
+           "snippet": "Nutrition labeling for raw produce (fruits and vegetables) and fish is voluntary. We \nrefer to these products as \"conventional\" foods. For detailed information on ...",
+           "htmlSnippet": "\u003cb\u003eNutrition\u003c/b\u003e labeling for raw produce (fruits and vegetables) and fish is voluntary. We \u003cbr\u003e\nrefer to these products as &quot;conventional&quot; foods. For detailed information on&nbsp;...",
+           "cacheId": "5vtPC_QeMXwJ",
+           "formattedUrl": "1.usa.gov/1elHGM5",
+           "htmlFormattedUrl": "1.usa.gov/1elHGM5",
+           "pagemap": {
+            "metatags": [
+             {
+              "id": "UCM2006860",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition",
+              "dc.type": "WebContent",
+              "dc.description": "Labeling requirements for foods under the Federal Food, Drug and Cosmetic Act.",
+              "dc.language": "en",
+              "posted": "2008-10-28",
+              "index_date": "2016-06-30",
+              "dc.publisher": "Center for Food Safety and Applied Nutrition",
+              "dc.audience": "Industry Representatives, Patients & Consumers",
+              "dc.creator": "Center for Food Safety and Applied Nutrition",
+              "old_url": "http://www.fda.gov/Food/LabelingNutrition/default.htm; http://www.fda.gov/Food/LabelingNutrition/PrintInformationMaterials/default.htm",
+              "archive": "No",
+              "search_topic": "Food",
+              "dc.subject": "Food & Beverages, Nutrition, Nutrition Label, Food Ingredients & Packaging",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Labeling & Nutrition \u003e Nutrition Facts Label: Read the Label Youth ...",
+           "htmlTitle": "Labeling &amp; \u003cb\u003eNutrition\u003c/b\u003e &gt; \u003cb\u003eNutrition\u003c/b\u003e Facts Label: Read the Label Youth ...",
+           "link": "http://1.usa.gov/1nwWSa8",
+           "displayLink": "1.usa.gov",
+           "snippet": "May 20, 2016 ... Spot the Block is the award-winning outreach campaign that challenges tweens (\nages 9 to 13) to use the Nutrition Facts Label to make healthy ...",
+           "htmlSnippet": "May 20, 2016 \u003cb\u003e...\u003c/b\u003e Spot the Block is the award-winning outreach campaign that challenges tweens (\u003cbr\u003e\nages 9 to 13) to use the \u003cb\u003eNutrition\u003c/b\u003e Facts Label to make healthy&nbsp;...",
+           "cacheId": "953t3w4s5xsJ",
+           "formattedUrl": "1.usa.gov/1nwWSa8",
+           "htmlFormattedUrl": "1.usa.gov/1nwWSa8",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "194",
+              "height": "179",
+              "src": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTA9iau0fGykDlYZ1VCasCMtQFm5D_1jT4NxMcEM3C5oUFKUiertMi5yk-Q"
+             }
+            ],
+            "metatags": [
+             {
+              "id": "UCM281746",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition - Nutrition Facts Label: Read the Label Youth Outreach Campaign",
+              "dc.type": "WebContent",
+              "dc.description": "Spot the Block is the award-winning outreach campaign that challenges tweens (ages 9 to 13) to use the Nutrition Facts Label to make healthy food choices.",
+              "dc.language": "en",
+              "posted": "2011-12-12",
+              "index_date": "2016-05-20",
+              "dc.publisher": "Center for Food Safety and Applied Nutrition",
+              "dc.audience": "Patients & Consumers, Educators, Health Professionals",
+              "dc.creator": "Center for Food Safety and Applied Nutrition",
+              "old_url": "http://www.fda.gov/Food/ResourcesForYou/Consumers/KidsTeens/ucm115810.htm",
+              "archive": "No",
+              "search_topic": "Food",
+              "dc.subject": "Nutrition, Diets & Dieting, Food Ingredients & Packaging, Consumer Health",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.fda.gov/ucm/groups/fdagov-public/documents/image/ucm365185.png"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Consumer Updates \u003e Nutrition Facts Label: Proposed Changes Aim ...",
+           "htmlTitle": "Consumer Updates &gt; \u003cb\u003eNutrition\u003c/b\u003e Facts Label: Proposed Changes Aim ...",
+           "link": "http://1.usa.gov/NCy1nN",
+           "displayLink": "1.usa.gov",
+           "snippet": "Feb 27, 2014 ... FDA proposes bringing the Nutrition Facts Label--which has become one of the \nmost recognized graphics in the world--up to date with changes ...",
+           "htmlSnippet": "Feb 27, 2014 \u003cb\u003e...\u003c/b\u003e FDA proposes bringing the \u003cb\u003eNutrition\u003c/b\u003e Facts Label--which has become one of the \u003cbr\u003e\nmost recognized graphics in the world--up to date with changes&nbsp;...",
+           "cacheId": "nY6sSzMorTcJ",
+           "formattedUrl": "1.usa.gov/NCy1nN",
+           "htmlFormattedUrl": "1.usa.gov/NCy1nN",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "163",
+              "height": "308",
+              "src": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRvYzqshyjhszFa1iJiUCwmPhzAG5pMpHOFSgFatwzcbLNhMgM44pqNdk0"
+             }
+            ],
+            "metatags": [
+             {
+              "id": "UCM387114",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Consumer Updates - Nutrition Facts Label: Proposed Changes Aim to Better Inform Food Choices",
+              "dc.type": "WebContent",
+              "dc.description": "FDA proposes bringing the Nutrition Facts Label--which has become one of the most recognized graphics in the world--up to date with changes to its design and content. Proposed updates include the addition of added sugars and changes to some serving size requirements.",
+              "dc.language": "en",
+              "posted": "2014-02-27",
+              "index_date": "2016-05-20",
+              "dc.publisher": "Office of the Commissioner",
+              "dc.audience": "Patients & Consumers",
+              "dc.creator": "Office of the Commissioner",
+              "archive": "Yes",
+              "search_topic": "Food|Public Information & Education",
+              "dc.subject": "Food & Beverages, Nutrition",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "http://www.fda.gov/ucm/groups/fdagov-public/documents/image/ucm387151.png"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "Labeling & Nutrition Guidance Documents & Regulatory Information",
+           "htmlTitle": "Labeling &amp; \u003cb\u003eNutrition\u003c/b\u003e Guidance Documents &amp; Regulatory Information",
+           "link": "http://go.usa.gov/ch3FT",
+           "displayLink": "go.usa.gov",
+           "snippet": "This is region content for the Site Studio Web Site Section 'Food Labeling & \nNutrition', Region 'MainContent'",
+           "htmlSnippet": "This is region content for the Site Studio Web Site Section &#39;Food Labeling &amp; \u003cbr\u003e\n\u003cb\u003eNutrition\u003c/b\u003e&#39;, Region &#39;MainContent&#39;",
+           "cacheId": "fdhleJlf_CkJ",
+           "formattedUrl": "go.usa.gov/ch3FT",
+           "htmlFormattedUrl": "go.usa.gov/ch3FT",
+           "pagemap": {
+            "metatags": [
+             {
+              "id": "UCM2006827",
+              "msvalidate.01": "0AE61A039CC5BDCCF556A11C18A61D44",
+              "dc.title": "Labeling & Nutrition Guidance Documents & Regulatory Information",
+              "dc.type": "WebContent",
+              "dc.description": "This is region content for the Site Studio Web Site Section 'Food Labeling & Nutrition', Region 'MainContent'",
+              "dc.language": "en",
+              "posted": "2008-10-28",
+              "index_date": "2016-06-30",
+              "dc.publisher": "Office of Regulatory Affairs",
+              "dc.audience": "Health Professionals, Industry Representatives, Government",
+              "dc.creator": "Office of Regulatory Affairs",
+              "old_url": "http://www.fda.gov/Food/LabelingNutrition/FoodLabelingGuidanceRegulatoryInformation/default.htm; http://www.fda.gov/Food/GuidanceComplianceRegulatoryInformation/GuidanceDocuments/FoodLabelingNutrition/default.htm; http://www.fda.gov/Food/LabelingNutrition/FoodLabelingGuidanceRegulatoryInformation/default.htm",
+              "archive": "No",
+              "search_topic": "Food",
+              "dc.subject": "Guidance Documents, Nutrition, Food & Beverages, Food & Color Additives, Food Ingredients & Packaging, Food Allergens",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "apple-mobile-web-app-title": "FDA",
+              "apple-mobile-web-app-capable": "yes"
+             }
+            ]
+           }
+          },
+          {
+           "kind": "customsearch#result",
+           "title": "The White House and FDA Announce Modernized Nutrition Facts ...",
+           "htmlTitle": "The White House and FDA Announce Modernized \u003cb\u003eNutrition\u003c/b\u003e Facts ...",
+           "link": "http://1.usa.gov/1sFTEJ4",
+           "displayLink": "1.usa.gov",
+           "snippet": "May 20, 2016 ... “I am thrilled that the FDA has finalized a new and improved Nutrition Facts label \nthat will be on food products nationwide,” said First Lady ...",
+           "htmlSnippet": "May 20, 2016 \u003cb\u003e...\u003c/b\u003e “I am thrilled that the FDA has finalized a new and improved \u003cb\u003eNutrition\u003c/b\u003e Facts label \u003cbr\u003e\nthat will be on food products nationwide,” said First Lady&nbsp;...",
+           "cacheId": "d2Dp5cGngr4J",
+           "formattedUrl": "1.usa.gov/1sFTEJ4",
+           "htmlFormattedUrl": "1.usa.gov/1sFTEJ4",
+           "pagemap": {
+            "cse_thumbnail": [
+             {
+              "width": "203",
+              "height": "248",
+              "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSTeQZwH7FogST0t1pW73jFs0fPMXtvsyfVcJ8FV7NbQ5D3PM9tO1byzrw"
+             }
+            ],
+            "metatags": [
+             {
+              "msapplication-square150x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-150x150.png",
+              "msapplication-square70x70logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-wide310x150logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x150.png",
+              "msapplication-square310x310logo": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-310x310.png",
+              "msapplication-tileimage": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/images/fortyfour/favicons/mstile-70x70.png",
+              "msapplication-tilecolor": "#003C80",
+              "msapplication-config": "https://www.whitehouse.gov/profiles/forall/themes/custom/fortyfour/browserconfig.xml",
+              "application-name": "Whitehouse",
+              "og:site_name": "whitehouse.gov",
+              "og:type": "article",
+              "og:title": "The White House and FDA Announce Modernized Nutrition Facts Label",
+              "og:url": "https://www.whitehouse.gov/the-press-office/2016/05/20/white-house-and-fda-announce-modernized-nutrition-facts-label",
+              "og:description": "First Lady Michelle Obama announces the new Nutrition Facts label as part of an effort to help make the healthy choice the easy choice for families",
+              "og:updated_time": "2016-05-20T09:37:09-04:00",
+              "og:image": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:secure_url": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "og:image:type": "image/jpeg",
+              "og:image:width": "240",
+              "og:image:height": "240",
+              "twitter:card": "summary",
+              "twitter:site": "@WhiteHouse",
+              "twitter:creator": "@WhiteHouse",
+              "twitter:url": "https://www.whitehouse.gov/the-press-office/2016/05/20/white-house-and-fda-announce-modernized-nutrition-facts-label",
+              "twitter:title": "The White House and FDA Announce Modernized Nutrition Facts Label",
+              "twitter:image:width": "240",
+              "twitter:image:src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/twitter_cards_default.jpg",
+              "twitter:image:height": "240",
+              "article:published_time": "2016-05-20T09:37:09-04:00",
+              "article:modified_time": "2016-05-20T09:37:09-04:00",
+              "mobileoptimized": "width",
+              "handheldfriendly": "true",
+              "viewport": "width=device-width"
+             }
+            ],
+            "cse_image": [
+             {
+              "src": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/n%2Bf%2Bl.jpg"
+             }
+            ]
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Tue, 12 Jul 2016 20:34:46 GMT
+recorded_with: VCR 3.0.3
