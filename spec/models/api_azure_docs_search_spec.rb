@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ApiDocsSearch do
+describe ApiAzureDocsSearch do
   fixtures :affiliates
 
   let(:affiliate) { affiliates(:usagov_affiliate) }
