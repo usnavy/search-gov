@@ -29,7 +29,7 @@ class FormattedQuery
 
   def fill_included_terms_to_remainder(terms, delimiter, remaining_chars)
     included_terms = []
-    padded_delimiter = " #{delimiter} "
+    padded_delimiter = delimiter.nil? ? '' : " #{delimiter} "
     terms.each do |term|
       break if (remaining_chars -= "#{term} #{padded_delimiter}".length) < 0
       included_terms.unshift term

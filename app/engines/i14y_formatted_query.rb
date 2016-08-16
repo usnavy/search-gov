@@ -1,4 +1,4 @@
-class GoogleFormattedQuery < FormattedQuery
+class I14yFormattedQuery < FormattedQuery
   def initialize(user_query, options = {})
     super(options)
     user_query = downcase_except_operators(user_query)
@@ -16,5 +16,15 @@ class GoogleFormattedQuery < FormattedQuery
     sites << excluded unless excluded.blank?
     sites << domains unless domains.blank?
     sites.join(' ')
+  end
+
+  def fill_included_domains_to_remainder(remaining_chars)
+    terms = @included_domains.blank? ? [] : domains_to_process.map { |d| "site:#{d}" }
+    fill_included_terms_to_remainder(terms, '', remaining_chars)
+  end
+
+  def fill_excluded_domains_to_remainder(remaining_chars)
+    terms = @excluded_domains.map { |d| "-site:#{d}" }
+    fill_included_terms_to_remainder(terms, '', remaining_chars)
   end
 end

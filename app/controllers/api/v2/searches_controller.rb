@@ -1,3 +1,4 @@
+
 class Api::V2::SearchesController < ApplicationController
   respond_to :json
 
@@ -57,13 +58,16 @@ class Api::V2::SearchesController < ApplicationController
   end
 
   def docs
+    affiliate = @search_options.site
     @document_collection = (DocumentCollection.find(@search_options.dc) rescue nil)
-    if @document_collection and @document_collection.too_deep_for_bing?
-     @search = ApiGoogleDocsSearch.new @search_options.attributes
+    if affiliate.gets_i14y_results?
+      @search = ApiI14yDocsSearch.new @search_options.attributes
+      # formatter = I14yFormattedQuery.new(@search_options.query, { included_domains: , excluded_domains: })
+    elsif @document_collection and @document_collection.too_deep_for_bing?
+      @search = ApiGoogleDocsSearch.new @search_options.attributes
     else
-     affiliate = @search_options.site
-     klass = "Api#{affiliate.search_engine}DocsSearch".constantize
-     @search = klass.new @search_options.attributes
+      klass = "Api#{affiliate.search_engine}DocsSearch".constantize
+      @search = klass.new @search_options.attributes
     end
     @search.run
     respond_with @search
