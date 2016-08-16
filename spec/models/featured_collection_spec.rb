@@ -6,11 +6,16 @@ describe FeaturedCollection do
   before do
     @affiliate = affiliates(:usagov_affiliate)
   end
+  let(:affiliate) { affiliates(:usagov_affiliate) }
+  let(:valid_attributes) do
+    { affiliate: affiliate, title: 'my fc', status: 'active', publish_start_on: Date.today }
+  end
 
   it { should validate_presence_of :affiliate }
   it { should validate_presence_of :title }
   it { should validate_presence_of :publish_start_on }
   it { should have_attached_file :image }
+  it { should have_attached_file :rackspace_image }
   it { should validate_attachment_content_type(:image).allowing(%w{ image/gif image/jpeg image/pjpeg image/png image/x-png }).rejecting(nil) }
 
   FeaturedCollection::STATUSES.each do |status|
@@ -88,7 +93,7 @@ describe FeaturedCollection do
 
     context 'when no featured_collection_keywords are provided' do
       it 'should not allow match_keyword_values_only to be set to true' do
-        featured_collection.save.should be_false
+        featured_collection.save.should be false
         featured_collection.errors.full_messages.join.should =~ /requires at least one keyword/
       end
     end
@@ -97,7 +102,7 @@ describe FeaturedCollection do
       it 'should not allow match_keyword_values_only to be set to true' do
         featured_collection = @affiliate.featured_collections.build(fc_attributes)
         featured_collection.featured_collection_keywords.build({ value: 'foo bar' })
-        featured_collection.save.should be_true
+        featured_collection.save.should be true
         featured_collection.errors.should be_empty
       end
     end
@@ -117,14 +122,13 @@ describe FeaturedCollection do
 
   describe "#update_attributes" do
     let(:affiliate) { affiliates(:basic_affiliate) }
-    let(:image) { mock('image') }
-    let(:featured_collection) do
-      featured_collection = affiliate.featured_collections.build(:title => 'My awesome featured collection',
-                                                                 :status => 'active',
-                                                                 :publish_start_on => Date.current)
-      featured_collection.featured_collection_keywords.build(:value => 'test')
-      featured_collection.save!
-      featured_collection
+    let(:image) { double('image') }
+    let!(:featured_collection) do
+      affiliate.featured_collections.create(title: 'My awesome featured collection',
+                                           status: 'active',
+                                           publish_start_on: Date.current,
+                                           image_alt_text: 'alt text')
+
     end
 
     context "when there is an existing image" do
@@ -297,5 +301,14 @@ describe FeaturedCollection do
                         image_file_name
                         image_file_size
                         image_updated_at)
+  end
+
+  describe '#image' do
+    let(:image) { File.open(Rails.root.join('spec/fixtures/images/corgi.jpg')) }
+    let(:fc) { FeaturedCollection.create(valid_attributes.merge(image: image)) }
+
+    it 'stores the image in s3 with a secure url' do
+      expect(fc.image.url).to match /https:\/\/***REMOVED***\.s3\.amazonaws\.com\/test\/featured_collection\/#{fc.id}\/image\/\d+\/original\/corgi.jpg/
+    end
   end
 end

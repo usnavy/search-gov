@@ -62,7 +62,6 @@ class Api::V2::SearchesController < ApplicationController
     @document_collection = (DocumentCollection.find(@search_options.dc) rescue nil)
     if affiliate.gets_i14y_results?
       @search = ApiI14yDocsSearch.new @search_options.attributes
-      # formatter = I14yFormattedQuery.new(@search_options.query, { included_domains: , excluded_domains: })
     elsif @document_collection and @document_collection.too_deep_for_bing?
       @search = ApiGoogleDocsSearch.new @search_options.attributes
     else
