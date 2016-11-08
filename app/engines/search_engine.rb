@@ -13,13 +13,15 @@ class SearchEngine
                 :per_page,
                 :filter_level,
                 :api_connection,
-                :enable_highlighting
+                :enable_highlighting,
+                :log_formatted_query
 
   def initialize(options = {})
     @query = options[:query]
     @per_page = options[:per_page] || DEFAULT_PER_PAGE
     @offset = options[:offset] || DEFAULT_OFFSET
     @enable_highlighting = options[:enable_highlighting].nil? || options[:enable_highlighting]
+    @log_formatted_query = !!options[:log_formatted_query]
     yield self if block_given?
   end
 
@@ -47,6 +49,7 @@ class SearchEngine
       retry_count: attempt - 1,
       elapsed_time_ms: (elapsed_seconds * 1000).to_i,
     }
+    rseponse.diagnostics[:formatted_query] = query if log_formatted_query
 
     response
   end

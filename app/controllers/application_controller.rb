@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     email_to_verify
     form
     hl
+    log_formatted_query
     m
     page
     query
