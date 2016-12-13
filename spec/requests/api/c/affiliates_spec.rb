@@ -136,7 +136,10 @@ describe SearchConsumer::API do
             "font_family"=>"Helvetica"
           }
         },
-        "related_sites"=>[],
+        "related_sites"=>{
+          "label"=> nil,
+          "sites"=> []
+        },
         "document_collections"=>[
             {"id"=>collection.id,"name"=>"USAGov Collection","advanced_search_enabled"=>false}
         ]
