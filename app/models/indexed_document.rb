@@ -10,7 +10,8 @@ class IndexedDocument < ActiveRecord::Base
 
   belongs_to :affiliate
   before_validation :normalize_url
-  validates_presence_of :url, :affiliate_id, :title
+  #validates_presence_of :url, :affiliate_id #, :title
+  validates_presence_of :url, :affiliate_id
   validates_uniqueness_of :url, :message => "has already been added", :scope => :affiliate_id, :case_sensitive => false
   validates_url :url, allow_blank: true
   validates_length_of :url, :maximum => 2000
@@ -36,7 +37,9 @@ class IndexedDocument < ActiveRecord::Base
   def fetch
     destroy and return unless errors.empty?
     begin
-      uri = URI(url)
+      uri = URI(url) #TODO: switch to https if possible 
+      #TODO: handle redirects
+      #check out production error codes
       timeout(DOWNLOAD_TIMEOUT_SECS) do
         self.load_time = Benchmark.realtime do
           Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -86,6 +89,7 @@ class IndexedDocument < ActiveRecord::Base
 
   def index_document(file, content_type)
     raise IndexedDocumentError.new "Document is over #{MAX_DOC_SIZE/1.megabyte}mb limit" if file.size > MAX_DOC_SIZE
+
     case content_type
       when /html/
         index_html(file)
@@ -103,10 +107,17 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_html(file)
-    doc = Nokogiri::HTML(file)
+    doc = Nokogiri::HTML(file) #TODO: use Tika instead?
     doc.css('script').each(&:remove)
     doc.css('style').each(&:remove)
-    self.attributes = { body: extract_body_from(doc), doctype: 'html', last_crawled_at: Time.now, last_crawl_status: OK_STATUS }
+    #binding.pry
+    meta_desc = doc.at('meta[name="description"]')
+    description = meta_desc['content'].squish if meta_desc #FIXME
+    title = doc.title.squish
+    puts "DESC = #{description}".red
+    puts "TITLE = #{title}".red
+    self.attributes = { body: extract_body_from(doc), doctype: 'html', last_crawled_at: Time.now, last_crawl_status: OK_STATUS, 
+                        title: title, description: description }
   end
 
   def index_application_file(file_path, doctype)
@@ -140,7 +151,7 @@ class IndexedDocument < ActiveRecord::Base
   private
 
   def parse_file(file_path, option)
-    %x[cat #{file_path} | java -Xmx512m -jar #{Rails.root.to_s}/vendor/jars/tika-app-1.3.jar --encoding=UTF-8 -#{option}]
+    %x[cat #{file_path} | java -Xmx512m -jar #{Rails.root.to_s}/vendor/jars/tika-app-1.14.jar --encoding=UTF-8 -#{option}]
   end
 
   def normalize_url
