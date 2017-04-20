@@ -8,6 +8,8 @@ class IndexedDocument < ActiveRecord::Base
   class IndexedDocumentError < RuntimeError;
   end
 
+  attr_reader :file
+
   belongs_to :affiliate
   before_validation :normalize_url
   #validates_presence_of :url, :affiliate_id #, :title
@@ -35,6 +37,7 @@ class IndexedDocument < ActiveRecord::Base
   BLACKLISTED_EXTENSIONS = %w{wmv mov css csv gif htc ico jpeg jpg js json mp3 png rss swf txt wsdl xml zip gz z bz2 tgz jar tar m4v}
 
   def fetch
+    Rails.logger.info "FETCHING #{url}".blue
     destroy and return unless errors.empty?
     begin
       uri = URI(url) #TODO: switch to https if possible 
@@ -46,7 +49,7 @@ class IndexedDocument < ActiveRecord::Base
             request = Net::HTTP::Get.new uri.request_uri, {'User-Agent' => DEFAULT_USER_AGENT }
             http.request(request) do |response|
               raise IndexedDocumentError.new("#{response.code} #{response.message}") unless response.kind_of?(Net::HTTPSuccess)
-              file = Tempfile.open("IndexedDocument:#{id}", Rails.root.join('tmp'))
+              @file = Tempfile.open("IndexedDocument:#{id}", Rails.root.join('tmp'))
               file.set_encoding Encoding::BINARY
               begin
                 response.read_body { |chunk| file.write chunk }
@@ -88,6 +91,7 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_document(file, content_type)
+    Rails.logger.info "BEGIN INDEXING #{url}".blue
     raise IndexedDocumentError.new "Document is over #{MAX_DOC_SIZE/1.megabyte}mb limit" if file.size > MAX_DOC_SIZE
 
     case content_type
@@ -107,10 +111,10 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_html(file)
+    Rails.logger.info "BEGIN INDEXING html #{url}".blue
     doc = Nokogiri::HTML(file) #TODO: use Tika instead?
-    doc.css('script').each(&:remove)
-    doc.css('style').each(&:remove)
-    #binding.pry
+    doc.css('script').each(&:remove) #necessary? should be removed by sanitize
+    doc.css('style').each(&:remove) #necessary?
     meta_desc = doc.at('meta[name="description"]')
     description = meta_desc['content'].squish if meta_desc #FIXME
     title = doc.title.squish
@@ -121,13 +125,21 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_application_file(file_path, doctype)
-    document_text = parse_file(file_path, 't').strip rescue nil
+    Rails.logger.info "BEGIN INDEXING app file #{url}".blue
+    document_text = parse_file(file_path, 't').strip rescue nil #fixme
+    puts "parsed #{parse_file(file_path, 'j')}"
+    metadata = JSON.parse(parse_file(file_path, 'j')) rescue nil
+    title = metadata['title'].try(:strip) rescue nil #FIXME
+    description = metadata['subject'].try(:strip) rescue nil
     raise IndexedDocumentError.new(EMPTY_BODY_STATUS) if document_text.blank?
-    self.attributes = { :body => scrub_inner_text(document_text), :doctype => doctype, :last_crawled_at => Time.now, :last_crawl_status => OK_STATUS }
+    self.attributes = { :body => scrub_inner_text(document_text), :doctype => doctype, :last_crawled_at => Time.now, :last_crawl_status => OK_STATUS,
+       description: description, title: title }
   end
 
   def extract_body_from(nokogiri_doc)
+    Rails.logger.info "EXTRACTING BODY #{url}".blue
     body = scrub_inner_text(Sanitize.clean(nokogiri_doc.at('body').inner_html.encode('utf-8'))) rescue ''
+    #body = doc.at('body').text.encode('utf-8') rescue ''
     raise IndexedDocumentError.new(EMPTY_BODY_STATUS) if body.blank?
     body
   end
