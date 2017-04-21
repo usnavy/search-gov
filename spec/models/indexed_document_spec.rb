@@ -209,14 +209,11 @@ describe IndexedDocument do
         end
       end
 
-      context 'when the file contains garbage characters' do
+      context 'when the file contains non-UTF8 characters' do
         let(:pdf) { File.open(Rails.root.to_s + "/spec/fixtures/pdf/garbage_chars.pdf").read } #fixme: use smaller file
-        before do
-          stub_request(:get, indexed_document.url).to_return({ status: 200, body: pdf })
-          fetch
-        end
 
-        xit 'scrubs the characters' do
+        it 'scrubs the characters' do
+          fetch
           expect(indexed_document.body).not_to match(/\uFFFD/)
         end
       end
@@ -369,8 +366,6 @@ describe IndexedDocument do
       before do
         indexed_document.index_application_file(Rails.root.to_s + "/spec/fixtures/pdf/test.pdf", 'pdf')
       end
-
-      xit 'updates the title and description'
 
       xit "should update the body of the indexed document, leaving title field and description intact" do
         indexed_document.id.should_not be_nil

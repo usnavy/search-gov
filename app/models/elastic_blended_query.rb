@@ -12,6 +12,7 @@ class ElasticBlendedQuery < ElasticTextFilterByPublishedAtQuery
 
   def body
     Jbuilder.encode do |json|
+      json._source ["_id","path","title","description"] #temporary, but we should do something like this for performance
       indices_boost(json)
       query(json)
       highlight(json) if @highlighting

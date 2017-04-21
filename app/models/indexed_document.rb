@@ -132,7 +132,7 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def scrub_inner_text(inner_text)
-    inner_text.gsub(/ /, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish
+    inner_text.gsub(/ |\uFFFD/, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish
   end
 
   def last_crawl_status_error?
