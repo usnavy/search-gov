@@ -92,6 +92,7 @@ class IndexedDocument < ActiveRecord::Base
 
   def index_document(file, content_type)
     Rails.logger.info "BEGIN INDEXING #{url}".blue
+
     raise IndexedDocumentError.new "Document is over #{MAX_DOC_SIZE/1.megabyte}mb limit" if file.size > MAX_DOC_SIZE
 
     case content_type
@@ -145,7 +146,7 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def scrub_inner_text(inner_text)
-    inner_text.gsub(/ /, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish
+    inner_text.gsub(/ /, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish.scrub
   end
 
   def last_crawl_status_error?

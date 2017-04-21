@@ -188,6 +188,18 @@ describe IndexedDocument do
           expect{ fetch }.not_to change{ indexed_document.description } #fixme
         end
       end
+
+      context 'when the file contains garbage characters' do
+        let(:pdf) { File.open(Rails.root.to_s + "/spec/fixtures/pdf/garbage_chars.pdf").read } #fixme: use smaller file
+        before do
+          stub_request(:get, indexed_document.url).to_return({ status: 200, body: pdf })
+          fetch
+        end
+
+        xit 'scrubs the characters' do
+          expect(indexed_document.body).not_to match(/\uFFFD/)
+        end
+      end
     end
   end
 
