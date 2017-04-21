@@ -8,11 +8,8 @@ class IndexedDocument < ActiveRecord::Base
   class IndexedDocumentError < RuntimeError;
   end
 
-  attr_reader :file
-
   belongs_to :affiliate
   before_validation :normalize_url
-  #validates_presence_of :url, :affiliate_id #, :title
   validates_presence_of :url, :affiliate_id
   validates_uniqueness_of :url, :message => "has already been added", :scope => :affiliate_id, :case_sensitive => false
   validates_url :url, allow_blank: true
@@ -37,19 +34,17 @@ class IndexedDocument < ActiveRecord::Base
   BLACKLISTED_EXTENSIONS = %w{wmv mov css csv gif htc ico jpeg jpg js json mp3 png rss swf txt wsdl xml zip gz z bz2 tgz jar tar m4v}
 
   def fetch
-    Rails.logger.info "FETCHING #{url}".blue
+    Rails.logger.debug "Fetching IndexedDocument #{id}, #{url}"
     destroy and return unless errors.empty?
     begin
-      uri = URI(url) #TODO: switch to https if possible 
-      #TODO: handle redirects
-      #check out production error codes
+      uri = URI(url)
       timeout(DOWNLOAD_TIMEOUT_SECS) do
         self.load_time = Benchmark.realtime do
           Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
             request = Net::HTTP::Get.new uri.request_uri, {'User-Agent' => DEFAULT_USER_AGENT }
             http.request(request) do |response|
               raise IndexedDocumentError.new("#{response.code} #{response.message}") unless response.kind_of?(Net::HTTPSuccess)
-              @file = Tempfile.open("IndexedDocument:#{id}", Rails.root.join('tmp'))
+              file = Tempfile.open("IndexedDocument:#{id}", Rails.root.join('tmp'))
               file.set_encoding Encoding::BINARY
               begin
                 response.read_body { |chunk| file.write chunk }
@@ -91,10 +86,7 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_document(file, content_type)
-    Rails.logger.info "BEGIN INDEXING #{url}".blue
-
     raise IndexedDocumentError.new "Document is over #{MAX_DOC_SIZE/1.megabyte}mb limit" if file.size > MAX_DOC_SIZE
-
     case content_type
       when /html/
         index_html(file)
@@ -112,23 +104,18 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_html(file)
-    Rails.logger.info "BEGIN INDEXING html #{url}".blue
-    doc = Nokogiri::HTML(file) #TODO: use Tika instead?
-    doc.css('script').each(&:remove) #necessary? should be removed by sanitize
-    doc.css('style').each(&:remove) #necessary?
+    doc = Nokogiri::HTML(file)
+    doc.css('script').each(&:remove)
+    doc.css('style').each(&:remove)
     meta_desc = doc.at('meta[name="description"]')
     description = meta_desc['content'].squish if meta_desc #FIXME
     title = doc.title.squish
-    puts "DESC = #{description}".red
-    puts "TITLE = #{title}".red
     self.attributes = { body: extract_body_from(doc), doctype: 'html', last_crawled_at: Time.now, last_crawl_status: OK_STATUS, 
                         title: title, description: description }
   end
 
   def index_application_file(file_path, doctype)
-    Rails.logger.info "BEGIN INDEXING app file #{url}".blue
     document_text = parse_file(file_path, 't').strip rescue nil #fixme
-    puts "parsed #{parse_file(file_path, 'j')}"
     metadata = JSON.parse(parse_file(file_path, 'j')) rescue nil
     title = metadata['title'].try(:strip) rescue nil #FIXME
     description = metadata['subject'].try(:strip) rescue nil
@@ -138,15 +125,13 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def extract_body_from(nokogiri_doc)
-    Rails.logger.info "EXTRACTING BODY #{url}".blue
     body = scrub_inner_text(Sanitize.clean(nokogiri_doc.at('body').inner_html.encode('utf-8'))) rescue ''
-    #body = doc.at('body').text.encode('utf-8') rescue ''
     raise IndexedDocumentError.new(EMPTY_BODY_STATUS) if body.blank?
     body
   end
 
   def scrub_inner_text(inner_text)
-    inner_text.gsub(/ /, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish.scrub
+    inner_text.gsub(/ /, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish
   end
 
   def last_crawl_status_error?

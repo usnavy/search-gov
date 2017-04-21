@@ -171,7 +171,7 @@ describe IndexedDocument do
 
     context 'when the file is a pdf' do
       context 'when the file includes metadata' do
-        let(:pdf) { File.open(Rails.root.to_s + "/spec/fixtures/pdf/test.pdf").read }
+        let(:pdf) { File.open("#{Rails.root.to_s}/spec/fixtures/pdf/test.pdf").read }
 
         before do
           stub_request(:get, indexed_document.url).to_return({ status: 200, body: pdf })
