@@ -125,9 +125,6 @@ describe IndexedDocument do
     let(:indexed_document) { IndexedDocument.create!(@valid_attributes) }
     subject(:fetch) { indexed_document.fetch }
 
-    xit "populates the title"
-    xit "populates the description"
-
     it "should set the load time attribute" do
       indexed_document.url = 'https://search.digitalgov.gov/'
       indexed_document.fetch
@@ -175,15 +172,14 @@ describe IndexedDocument do
 
     context 'when the file is a pdf' do
       let(:indexed_document) { affiliate.indexed_documents.create!(url: 'https://some.site.gov/some_doc.pdf') }
+      before do
+        stub_request(:get, indexed_document.url).to_return(
+          { status: 200, body: pdf, headers: { "content-type"=>"application/pdf" } }
+        )
+      end
 
       context 'when the file includes metadata' do
         let(:pdf) { File.open("#{Rails.root.to_s}/spec/fixtures/pdf/fw4.pdf").read }
-
-        before do
-          stub_request(:get, indexed_document.url).to_return(
-            { status: 200, body: pdf, headers: { "content-type"=>"application/pdf" } }
-          )
-        end
 
         it 'fetches the title' do
           expect{ fetch }.to change{ indexed_document.title }.from(nil).to('2017 Form W-4')
@@ -193,13 +189,20 @@ describe IndexedDocument do
           expect{ fetch }.to change{ indexed_document.description }.from(nil).
             to("Employee's Withholding Allowance Certificate")
         end
+
+        context 'when the document includes title and description' do
+          let(:indexed_document) do
+            affiliate.indexed_documents.create!(url: 'https://some.site.gov/some_doc.pdf', title: 'My doc', description: 'Handy info')
+          end
+
+          it 'does not override existing metadata' do
+            expect{ fetch }.not_to change{ [indexed_document.description, indexed_document.title] }
+          end
+        end
       end
 
       context 'when the file does not include metadata' do
         let(:pdf) { File.open(Rails.root.to_s + "/spec/fixtures/pdf/test.pdf").read }
-        before do
-          stub_request(:get, indexed_document.url).to_return({ status: 200, body: pdf })
-        end
 
         it 'updates the metadata' do
           expect{ fetch }.not_to change{ indexed_document.description } #fixme

@@ -8,6 +8,8 @@ class IndexedDocument < ActiveRecord::Base
   class IndexedDocumentError < RuntimeError;
   end
 
+  attr_reader :file
+
   belongs_to :affiliate
   before_validation :normalize_url
   validates_presence_of :url, :affiliate_id
@@ -44,7 +46,7 @@ class IndexedDocument < ActiveRecord::Base
             request = Net::HTTP::Get.new uri.request_uri, {'User-Agent' => DEFAULT_USER_AGENT }
             http.request(request) do |response|
               raise IndexedDocumentError.new("#{response.code} #{response.message}") unless response.kind_of?(Net::HTTPSuccess)
-              file = Tempfile.open("IndexedDocument:#{id}", Rails.root.join('tmp'))
+              @file = Tempfile.open("IndexedDocument:#{id}", Rails.root.join('tmp'))
               file.set_encoding Encoding::BINARY
               begin
                 response.read_body { |chunk| file.write chunk }
@@ -115,13 +117,12 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_application_file(file_path, doctype)
-    document_text = parse_file(file_path, 't').strip rescue nil #fixme
-    metadata = JSON.parse(parse_file(file_path, 'j')) rescue nil
-    title = metadata['title'].try(:strip) rescue nil #FIXME
-    description = metadata['subject'].try(:strip) rescue nil
+    document_text = parse_file(file_path, 't').strip rescue nil
     raise IndexedDocumentError.new(EMPTY_BODY_STATUS) if document_text.blank?
-    self.attributes = { :body => scrub_inner_text(document_text), :doctype => doctype, :last_crawled_at => Time.now, :last_crawl_status => OK_STATUS,
-       description: description, title: title }
+    self.attributes = { :body => scrub_inner_text(document_text), :doctype => doctype,
+                        :last_crawled_at => Time.now, :last_crawl_status => OK_STATUS,
+                         description: self.description || application_metadata[:description],
+                         title: self.title || application_metadata[:title] }
   end
 
   def extract_body_from(nokogiri_doc)
@@ -192,4 +193,13 @@ class IndexedDocument < ActiveRecord::Base
     end
   end
 
+  def application_metadata
+    meta_json = parse_file(file.path, 'j')
+    if meta_json.present?
+      metadata = JSON.parse(meta_json)
+      { title: metadata['title'].try(:strip), description: metadata['subject'].try(:strip) }
+    else
+      { title: nil, description: nil }
+    end
+  end
 end
