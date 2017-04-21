@@ -3,6 +3,11 @@ require 'spec_helper'
 
 describe IndexedDocument do
   fixtures :affiliates, :superfresh_urls, :site_domains, :features
+
+  let(:affiliate) { affiliates(:basic_affiliate) }
+  let(:url) { "http://some.site.gov/url" }
+  let(:indexed_document) { affiliate.indexed_document.create!(url: url) }
+
   before do
     @min_valid_attributes = {
       :title => 'Some Title',
@@ -22,7 +27,6 @@ describe IndexedDocument do
 
   it { should validate_presence_of :url }
   it { should validate_presence_of :affiliate_id }
-  xit { should validate_presence_of :title }
   it { should allow_value("http://some.site.gov/url").for(:url) }
   it { should allow_value("http://some.site.mil/").for(:url) }
   it { should allow_value("http://some.govsite.com/url").for(:url) }
@@ -170,11 +174,24 @@ describe IndexedDocument do
     end
 
     context 'when the file is a pdf' do
+      let(:indexed_document) { affiliate.indexed_documents.create!(url: 'https://some.site.gov/some_doc.pdf') }
+
       context 'when the file includes metadata' do
-        let(:pdf) { File.open("#{Rails.root.to_s}/spec/fixtures/pdf/test.pdf").read }
+        let(:pdf) { File.open("#{Rails.root.to_s}/spec/fixtures/pdf/fw4.pdf").read }
 
         before do
-          stub_request(:get, indexed_document.url).to_return({ status: 200, body: pdf })
+          stub_request(:get, indexed_document.url).to_return(
+            { status: 200, body: pdf, headers: { "content-type"=>"application/pdf" } }
+          )
+        end
+
+        it 'fetches the title' do
+          expect{ fetch }.to change{ indexed_document.title }.from(nil).to('2017 Form W-4')
+        end
+
+        it 'fetches the description' do
+          expect{ fetch }.to change{ indexed_document.description }.from(nil).
+            to("Employee's Withholding Allowance Certificate")
         end
       end
 
