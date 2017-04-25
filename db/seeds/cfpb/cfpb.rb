@@ -1,4 +1,4 @@
-cfpb = Affiliate.create!(name: "cfpb_#{Time.now.to_i}", display_name: "cfpb_#{Time.now.to_i}")
+cfpb = Affiliate.create!(name: "cfpb_#{Time.now.to_i}", display_name: "cfpb_#{Time.now.to_i}", gets_blended_results: true)
 puts "Created affiliate: #{cfpb.name}"
 
 urls = CSV.read("#{Rails.root}/db/seeds/cfpb/cfpb_top_urls.csv").map(&:first)
