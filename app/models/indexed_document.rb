@@ -91,7 +91,8 @@ class IndexedDocument < ActiveRecord::Base
     raise IndexedDocumentError.new "Document is over #{MAX_DOC_SIZE/1.megabyte}mb limit" if file.size > MAX_DOC_SIZE
     case content_type
       when /html/
-        index_html(file)
+        #index_html(file)
+        index_application_file(file.path, 'html')
       when /pdf/
         index_application_file(file.path, 'pdf')
       when /(ms-excel|spreadsheetml)/
@@ -105,7 +106,7 @@ class IndexedDocument < ActiveRecord::Base
     end
   end
 
-  def index_html(file)
+  def index_html(file) #deprecated
     doc = Nokogiri::HTML(file)
     doc.css('script').each(&:remove)
     doc.css('style').each(&:remove)
@@ -117,7 +118,7 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def index_application_file(file_path, doctype)
-    document_text = parse_file(file_path, 't').strip rescue nil
+    document_text = parse_file(file_path, 'T') rescue nil
     raise IndexedDocumentError.new(EMPTY_BODY_STATUS) if document_text.blank?
     self.attributes = { :body => scrub_inner_text(document_text), :doctype => doctype,
                         :last_crawled_at => Time.now, :last_crawl_status => OK_STATUS,
