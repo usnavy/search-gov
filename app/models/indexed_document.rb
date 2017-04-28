@@ -133,7 +133,8 @@ class IndexedDocument < ActiveRecord::Base
   end
 
   def scrub_inner_text(inner_text)
-    inner_text.gsub(/ |\uFFFD/, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish
+    #inner_text.gsub(/ |\uFFFD/, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish
+    inner_text.gsub(/\uFFFD/, ' ').gsub('&amp;', '&').squeeze(' ').gsub(/(?<l>[a-z])(?<U>[A-Z])/, '\k<l> \k<U>')
   end
 
   def last_crawl_status_error?
@@ -198,9 +199,10 @@ class IndexedDocument < ActiveRecord::Base
     meta_json = parse_file(file.path, 'j')
     if meta_json.present?
       metadata = JSON.parse(meta_json)
-      { title: metadata['title'].try(:strip), description: metadata['subject'].try(:strip) }
+      title = metadata['title'].presence || metadata['resourceName'].presence || url
+      { title: title.strip, description: metadata['subject'].try(:strip) }
     else
-      { title: nil, description: nil }
+      { title: url, description: nil }
     end
   end
 end

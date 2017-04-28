@@ -218,6 +218,14 @@ describe IndexedDocument do
         end
       end
     end
+
+    pending 'when the file includes a resource name but no title' do
+      let(:indexed_document) { affiliate.indexed_documents.create!(url: 'http://files.consumerfinance.gov/f/201307_cfpb_debt-collection-letter-2_more-information.doc') } #fixme
+      it 'sets the resource name as the title' do
+        expect{ fetch }.to change{ indexed_document.title }.from(nil).to('201307_cfpb_debt-collection-letter-2_more-information.doc')
+
+      end
+    end
   end
 
   describe "#save_or_destroy" do
@@ -346,6 +354,34 @@ describe IndexedDocument do
         end
       end
 
+    end
+  end
+
+  describe 'scrub_inner_text' do
+    let(:doc) { IndexedDocument.new }
+    it 'removes extra spaces' do
+      expect(doc.scrub_inner_text('foo    bar')).to eq('foo bar')
+    end
+
+    it 'retains line breaks' do
+      expect(doc.scrub_inner_text("foo\nbar")).to eq("foo\nbar")
+    end
+
+    it 'replaces unicode replacement characters with spaces' do
+      expect(doc.scrub_inner_text("foo�bar")).to eq('foo bar')
+    end
+
+    it 'restores encoded ampersands' do
+      expect(doc.scrub_inner_text("foo &amp; bar")).to eq('foo & bar')
+    end
+
+    xit 'removes garbage characters' do
+      expect(doc.scrub_inner_text("foobar")).to eq('foo bar')
+    end
+
+    it 'separates wrongly combined words' do
+      #this is a bug in tika, which sometimes munges words together - 
+      expect(doc.scrub_inner_text('fooBar').to eq('foo Bar')
     end
   end
 
