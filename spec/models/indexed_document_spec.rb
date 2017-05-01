@@ -381,7 +381,7 @@ describe IndexedDocument do
 
     it 'separates wrongly combined words' do
       #this is a bug in tika, which sometimes munges words together - 
-      expect(doc.scrub_inner_text('fooBar').to eq('foo Bar')
+      expect(doc.scrub_inner_text('fooBar')).to eq('foo Bar')
     end
   end
 
@@ -484,5 +484,21 @@ describe IndexedDocument do
   describe '#dup' do
     subject(:original_instance) { IndexedDocument.create!(@min_valid_attributes) }
     include_examples 'site dupable'
+  end
+
+  describe '#metadata' do
+    let(:indexed_document) { IndexedDocument.new }
+    let(:original_metadata) do
+      { 'title' => 'The Title', 'subject' => 'The description' }
+    end
+    before do
+      indexed_document.stub(:original_metadata).and_return(original_metadata)
+    end
+
+    it 'foo' do
+      #binding.pry
+      expect(indexed_document.metadata).to eq({ title: 'The Title', description: 'The description' })
+    end
+
   end
 end

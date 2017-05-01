@@ -69,6 +69,7 @@ class IndexedDocument < ActiveRecord::Base
 
   def handle_fetch_exception(e)
     begin
+      Rails.logger.error("Error fetching IndexedDocument #{id}: #{e.message}\n#{e.backtrace.first}")
       update_attributes!(:last_crawled_at => Time.now, :last_crawl_status => normalize_error_message(e), :body => nil)
     rescue Exception
       begin
@@ -91,7 +92,6 @@ class IndexedDocument < ActiveRecord::Base
     raise IndexedDocumentError.new "Document is over #{MAX_DOC_SIZE/1.megabyte}mb limit" if file.size > MAX_DOC_SIZE
     case content_type
       when /html/
-        #index_html(file)
         index_application_file(file.path, 'html')
       when /pdf/
         index_application_file(file.path, 'pdf')
@@ -122,8 +122,8 @@ class IndexedDocument < ActiveRecord::Base
     raise IndexedDocumentError.new(EMPTY_BODY_STATUS) if document_text.blank?
     self.attributes = { :body => scrub_inner_text(document_text), :doctype => doctype,
                         :last_crawled_at => Time.now, :last_crawl_status => OK_STATUS,
-                         description: self.description || application_metadata[:description],
-                         title: self.title || application_metadata[:title] }
+                         description: self.description || metadata[:description],
+                         title: self.title || metadata[:title] }
   end
 
   def extract_body_from(nokogiri_doc)
@@ -147,6 +147,10 @@ class IndexedDocument < ActiveRecord::Base
 
   def source_manual?
     source == 'manual'
+  end
+
+  def metadata
+    @metadata ||= parse_metadata
   end
 
   private
@@ -195,12 +199,15 @@ class IndexedDocument < ActiveRecord::Base
     end
   end
 
-  def application_metadata
-    meta_json = parse_file(file.path, 'j')
-    if meta_json.present?
-      metadata = JSON.parse(meta_json)
-      title = metadata['title'].presence || metadata['resourceName'].presence || url
-      { title: title.strip, description: metadata['subject'].try(:strip) }
+  def original_metadata
+    JSON.parse(parse_file(file.path, 'j')) rescue nil
+  end
+
+  def parse_metadata
+    if original_metadata.present?
+      puts original_metadata.to_s.blue
+      title = original_metadata['title'].presence || original_metadata['resourceName'].presence || url
+      { title: title.strip, description: original_metadata['subject'].try(:strip) }
     else
       { title: url, description: nil }
     end
