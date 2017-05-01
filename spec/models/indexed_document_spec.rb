@@ -495,10 +495,18 @@ describe IndexedDocument do
       indexed_document.stub(:original_metadata).and_return(original_metadata)
     end
 
-    it 'foo' do
-      #binding.pry
+    it 'includes the title and description' do
       expect(indexed_document.metadata).to eq({ title: 'The Title', description: 'The description' })
     end
 
+    context 'when the title is an array' do
+      let(:original_metadata) do
+        { 'title' => ['The Title','Another Title'], 'subject' => 'The description' }
+      end
+
+      it 'uses the longer title' do #todo: be smarter about this
+        expect(indexed_document.metadata[:title]).to eq 'Another Title'
+      end
+    end
   end
 end
