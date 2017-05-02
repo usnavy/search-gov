@@ -207,7 +207,7 @@ class IndexedDocument < ActiveRecord::Base
     if original_metadata.present?
       puts original_metadata.to_s.blue
       # alternative sources: dc:title, og: title, etc.
-      title = original_metadata['title'].presence || original_metadata['resourceName'].presence || url
+      title = original_metadata['og:title'].presence || original_metadata['title'].presence || original_metadata['resourceName'].presence || url
       title = title.max_by(&:length) if title.is_a? Array #fixme
       { title: title.strip, description: original_metadata['subject'].try(:strip) }
     else

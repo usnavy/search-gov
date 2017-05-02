@@ -508,5 +508,16 @@ describe IndexedDocument do
         expect(indexed_document.metadata[:title]).to eq 'Another Title'
       end
     end
+
+    context 'when og:title is present' do
+      let(:original_metadata) do
+        { 'title' => ['The Title'], 'og:title' => 'The OG Title', 'subject' => 'The description' }
+      end
+
+      it 'uses the OG title' do #todo: be smarter about this
+        expect(indexed_document.metadata[:title]).to eq 'The OG Title'
+      end
+    end
+
   end
 end
