@@ -134,7 +134,7 @@ class IndexedDocument < ActiveRecord::Base
 
   def scrub_inner_text(inner_text)
     #inner_text.gsub(/ |\uFFFD/, ' ').squish.gsub(/[\t\n\r]/, ' ').gsub(/(\s)\1+/, '. ').gsub('&amp;', '&').squish
-    inner_text.gsub(/\uFFFD/, ' ').gsub('&amp;', '&').squeeze(' ').gsub(/(?<l>[a-z])(?<U>[A-Z])/, '\k<l> \k<U>')
+    inner_text.gsub(/\uFFFD/, ' ').gsub('&amp;', '&').squeeze(' ')
   end
 
   def last_crawl_status_error?
@@ -205,7 +205,6 @@ class IndexedDocument < ActiveRecord::Base
 
   def parse_metadata
     if original_metadata.present?
-      puts original_metadata.to_s.blue
       # alternative sources: dc:title, og: title, etc.
       title = original_metadata['og:title'].presence || original_metadata['title'].presence || original_metadata['resourceName'].presence || url
       title = title.max_by(&:length) if title.is_a? Array #fixme
