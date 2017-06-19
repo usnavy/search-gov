@@ -32,7 +32,7 @@ module ResultsHelper
     link_to document.title.html_safe, document.html_url, { data: { click: click_data }}
   end
 
-  def link_to_image_result_title(result, position, options = { tabindex: -1 })
+  def link_to_image_result_title(result, position, options = { })
     title = translate_bing_highlights(h(result['title'])).html_safe
 
     click_data = { p: position }
