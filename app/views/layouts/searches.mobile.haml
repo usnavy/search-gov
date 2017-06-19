@@ -24,7 +24,7 @@
   %body{ body_class_hash(@search.affiliate) }
     - if $git_info.show_header
       #git-info-header= render partial: 'shared/git_info_header'
-    %a#skiplink{ href: '#main-content', tabindex: 1 }= t 'searches.skip_to_main_content'
+    %a#skiplink{ href: '#main-content' }= t 'searches.skip_to_main_content'
     = render partial: 'searches/header_tagline', locals: { affiliate: @search.affiliate } if @search.affiliate.header_tagline.present?
     #header-wrapper
       - navigations = renderable_navigations @search
