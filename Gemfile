@@ -91,6 +91,14 @@ gem 'cld2', require: 'cld'
 # and https://github.com/flavorjones/loofah/issues/135
 gem 'loofah', git: 'https://github.com/MothOnMars/loofah', branch: 'html5_block_elements'
 
+#Crawler gems
+gem 'cobweb'
+gem 'spidr' #needs robots
+#gem 'spider'
+#gem 'metainspector'
+gem 'robots'
+gem 'medusa', git: 'https://github.com/brutuscat/medusa.git'
+
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
