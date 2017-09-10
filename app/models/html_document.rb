@@ -17,6 +17,10 @@ class HtmlDocument < WebDocument
     metadata['article:published_time']
   end
 
+  def links
+    links = doc.css('a').map{|l| l['href']}
+  end
+
   private
 
   def html

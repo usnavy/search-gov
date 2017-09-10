@@ -88,6 +88,14 @@ gem 'public_suffix', '~> 2.0.0'
 gem 'robots_tag_parser', git: 'https://github.com/GSA/robots_tag_parser'
 gem 'cld2', require: 'cld'
 gem 'loofah', '~> 2.0.3'
+#gem 'cobweb'
+gem 'spidr' #needs robots
+#gem 'spider'
+#gem 'metainspector'
+gem 'robots'
+gem 'sitemap_generator'
+gem 'medusa', git: 'https://github.com/brutuscat/medusa.git'
+gem 'oga'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
