@@ -1,0 +1,46 @@
+class ApplicationDocument < WebDocument
+  def title
+    metadata['title'].presence || File.basename(url)
+  end
+
+  def description
+    metadata['subject']
+  end
+
+  def keywords
+    metadata['Keywords']
+  end
+
+  def created
+    metadata['Creation-Date']
+  end
+
+  private
+
+  def extract_metadata
+<<<<<<< HEAD
+    Tika.get_recursive_metadata(document).first
+  end
+
+  def parse_content
+    metadata['X-TIKA:content']&.gsub(/\uFFFD/, ' ')&.squish
+  end
+
+  def extract_language
+    language = metadata['language'] || ''
+    language[/^(?<code>[a-z]{2})\W?/,"code"] ||
+      Language.find_by_name(language)&.code ||
+      detect_language
+=======
+    JSON.parse(%x[java -Xmx512m -jar #{Rails.root.to_s}/vendor/jars/tika-app-1.16.jar --encoding=UTF-8 -J -t #{document.path}]).first
+  end
+
+  def parse_content
+    metadata['X-TIKA:content']
+  end
+
+  def extract_language
+    metadata['language'].try(:first, 2) || detect_language
+>>>>>>> f061774... [#150344440] allow searchgov rake task to index pdfs
+  end
+end

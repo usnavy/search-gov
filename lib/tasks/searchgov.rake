@@ -43,7 +43,7 @@ end
 # - obey robots.txt
 # - only list successfully retrieved URLs (status code 200)
 # - only internal urls
-# - page depth?
+# - only pages with our supported mimetypes (SearchgovUrl::SUPPORTED_CONTENT_TYPES)
 # - omit query strings
 #
 def spidr
@@ -64,45 +64,42 @@ def spider
 end
 
 def cobweb
-  crawler = CobwebCrawler.new(crawl_id: Time.now.to_i, obey_robots: true)
-  stats = crawler.crawl(@site) do |page|
-    puts "#{page[:url]} #{page[:status_code]}"
-  end
-end
+  #crawling options: https://github.com/stewartmckee/cobweb#newoptions
+  crawler = CobwebCrawler.new(crawl_id: Time.now.to_i,
+                              obey_robots: true,
+                              valid_mime_types: SearchgovUrl::SUPPORTED_CONTENT_TYPES #this doesn't seem to work...
+                             )
 
-def medusa
-  Medusa.crawl(@site,
-               discard_page_bodies: true,
-               #delay: 1,
-               obey_robots_txt: true,
-               skip_query_strings: true
-              ) do |medusa|
-    medusa.on_every_page do |page|
-      puts page.url
-      @file << [(page.redirect_to || page.url), page.code, page.depth] if page.code == 200
+  stats = crawler.crawl(@site) do |page|
+    #data/methods per page: https://github.com/stewartmckee/cobweb#data-returned-for-each-page--the-data-available-in-the-returned-hash-are
+    if page[:status_code] == 200 && SearchgovUrl::SUPPORTED_CONTENT_TYPES.any?{|type| %r{#{type}} === page[:headers][:'content-type'].first}
+      puts page[:url] #{page[:status_code]}"
+      @file << [page[:url]]
     end
   end
 end
 
+def medusa
+  #crawling options:
+  #https://github.com/brutuscat/medusa/blob/master/lib/medusa/core.rb#L28
+  Medusa.crawl(@site,
+               discard_page_bodies: true,
+               #delay: 1,
+               obey_robots_txt: true,
+               skip_query_strings: true,
+               #threads: 4
+              ) do |medusa|
+    medusa.on_every_page do |page|
+      #data/methods per page: https://github.com/brutuscat/medusa/blob/master/lib/medusa/page.rb#L8
+      if page.code == 200 && page.visited.nil? #&& SearchgovUrl::SUPPORTED_CONTENT_TYPES.any?(page.headers['Content-Type'])
+        puts page.url
+        @file << [(page.redirect_to || page.url)] #, page.code, page.depth]
+      end
+    end
 
-=begin
-Data Returned For Each Page
-The data available in the returned hash are:
-
-:url – url of the resource requested
-:status_code – status code of the resource requested
-:response_time – response time of the resource requested
-:mime_type – content type of the resource
-:character_set – character set of content determined from content type
-:length – length of the content returned
-:body – content of the resource
-:location – location header if returned
-:redirect_through – if your following redirects, any redirects are stored here detailing where you were redirected through to get to the final location
-:headers – hash or the headers returned
-:links – hash or links on the page split in to types
-:links – urls from a tags within the resource
-:images – urls from img tags within the resource
-:related – urls from link tags
-:scripts – urls from script tags
-:styles – urls from within link tags with rel of stylesheet and from url() directives with stylesheets
-=end
+    # List count of unique pages
+    #medusa.after_crawl do |pages|
+     # puts pages.uniq!.size
+    #end
+  end
+end
