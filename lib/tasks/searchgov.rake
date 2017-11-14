@@ -57,9 +57,6 @@ def spidr
     user_agent: 'usasearch',
     #delay:
   }
-  #Spidr.site(@site, options) do |spider|
-   # spider.every_url { |url| puts url }
-  #end
 
   Spidr.site(@site, options) do |spider|
     spider.every_ok_page do |page|
