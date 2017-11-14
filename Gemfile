@@ -90,7 +90,7 @@ gem 'cld2', require: 'cld'
 gem 'loofah', '~> 2.0.3'
 
 #Crawler gems
-gem 'cobweb'
+#gem 'cobweb'
 gem 'spidr' #needs robots
 #gem 'spider'
 #gem 'metainspector'

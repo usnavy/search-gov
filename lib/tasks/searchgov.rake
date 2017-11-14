@@ -49,8 +49,25 @@ end
 def spidr
   # NOTE: to run this crawler, you'll need to comment out the cobweb gem and bundle install
   # to avoid class name conflicts
-  Spidr.site(@site, { robots: true }) do |spider|
-    spider.every_url { |url| puts url }
+
+  #crawling options:
+  #https://github.com/postmodern/spidr/blob/a197f2f030a4cf9a00244a3677014dfc633843d4/lib/spidr/agent.rb#L102
+  options = {
+    robots: true,
+    user_agent: 'usasearch',
+    #delay:
+  }
+  #Spidr.site(@site, options) do |spider|
+   # spider.every_url { |url| puts url }
+  #end
+
+  Spidr.site(@site, options) do |spider|
+    spider.every_ok_page do |page|
+      if supported_content_type(page.content_type)
+        puts page.url
+        @file << [page.url]
+      end
+    end
   end
 end
 
@@ -65,14 +82,17 @@ end
 
 def cobweb
   #crawling options: https://github.com/stewartmckee/cobweb#newoptions
-  crawler = CobwebCrawler.new(crawl_id: Time.now.to_i,
-                              obey_robots: true,
-                              valid_mime_types: SearchgovUrl::SUPPORTED_CONTENT_TYPES #this doesn't seem to work...
-                             )
+  options = {
+    crawl_id: Time.now.to_i,
+    obey_robots: true,
+    valid_mime_types: SearchgovUrl::SUPPORTED_CONTENT_TYPES #this doesn't seem to work...
+  }
+
+  crawler = CobwebCrawler.new(options)
 
   stats = crawler.crawl(@site) do |page|
     #data/methods per page: https://github.com/stewartmckee/cobweb#data-returned-for-each-page--the-data-available-in-the-returned-hash-are
-    if page[:status_code] == 200 && SearchgovUrl::SUPPORTED_CONTENT_TYPES.any?{|type| %r{#{type}} === page[:headers][:'content-type'].first}
+    if page[:status_code] == 200 && supported_content_type( page[:headers][:'content-type'].first )
       puts page[:url] #{page[:status_code]}"
       @file << [page[:url]]
     end
@@ -82,24 +102,27 @@ end
 def medusa
   #crawling options:
   #https://github.com/brutuscat/medusa/blob/master/lib/medusa/core.rb#L28
-  Medusa.crawl(@site,
-               discard_page_bodies: true,
-               #delay: 1,
-               obey_robots_txt: true,
-               skip_query_strings: true,
-               #threads: 4
-              ) do |medusa|
+  options = {
+    discard_page_bodies: true,
+    #delay: 1,
+    obey_robots_txt: true,
+    skip_query_strings: true,
+    #threads: 4
+  }
+
+  Medusa.crawl(@site, options) do |medusa|
     medusa.on_every_page do |page|
       #data/methods per page: https://github.com/brutuscat/medusa/blob/master/lib/medusa/page.rb#L8
-      if page.code == 200 && page.visited.nil? #&& SearchgovUrl::SUPPORTED_CONTENT_TYPES.any?(page.headers['Content-Type'])
+      if page.code == 200 && page.visited.nil? && supported_content_type(page.headers['content-type'])
         puts page.url
         @file << [(page.redirect_to || page.url)] #, page.code, page.depth]
       end
     end
+  end
+end
 
-    # List count of unique pages
-    #medusa.after_crawl do |pages|
-     # puts pages.uniq!.size
-    #end
+def supported_content_type(type)
+  SearchgovUrl::SUPPORTED_CONTENT_TYPES.any? do |ok_type|
+    %r{#{ok_type}} === type
   end
 end
