@@ -31,6 +31,12 @@ bing_v5_prod: &BING_V5_PROD
     timeout: 6
   adapter: :typhoeus
 
+bing_v6_prod: &BING_V6_PROD
+  options:
+    open_timeout: 0.5
+    timeout: 1.5
+  adapter: :net_http_persistent
+
 production: &PRODUCTION
   options:
     open_timeout: 0.5
@@ -43,3 +49,5 @@ production: &PRODUCTION
     <<: *AZURE_PROD
   bing_v5_api:
     <<: *BING_V5_PROD
+  bing_v6:
+    <<: *BING_V6_PROD
