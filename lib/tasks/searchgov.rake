@@ -50,8 +50,8 @@ def spidr
   # NOTE: to run this crawler, you'll need to comment out the cobweb gem and bundle install
   # to avoid class name conflicts
 
-  #crawling options:
-  #https://github.com/postmodern/spidr/blob/a197f2f030a4cf9a00244a3677014dfc633843d4/lib/spidr/agent.rb#L102
+  # crawling options:
+  # https://github.com/postmodern/spidr/blob/a197f2f030a4cf9a00244a3677014dfc633843d4/lib/spidr/agent.rb#L102
   options = {
     robots: true,
     user_agent: 'usasearch',
@@ -78,33 +78,37 @@ def spider
 end
 
 def cobweb
-  #crawling options: https://github.com/stewartmckee/cobweb#newoptions
+  # crawling options:
+  # https://github.com/stewartmckee/cobweb#newoptions
   options = {
     crawl_id: Time.now.to_i,
     obey_robots: true,
+    thread_count: 4,
+    timeout: 30,
     valid_mime_types: SearchgovUrl::SUPPORTED_CONTENT_TYPES #this doesn't seem to work...
   }
 
   crawler = CobwebCrawler.new(options)
 
   stats = crawler.crawl(@site) do |page|
-    #data/methods per page: https://github.com/stewartmckee/cobweb#data-returned-for-each-page--the-data-available-in-the-returned-hash-are
+    # data/methods per page: https://github.com/stewartmckee/cobweb#data-returned-for-each-page--the-data-available-in-the-returned-hash-are
     if page[:status_code] == 200 && supported_content_type( page[:headers][:'content-type'].first )
-      puts page[:url] #{page[:status_code]}"
+      puts page[:url]
       @file << [page[:url]]
     end
   end
 end
 
 def medusa
-  #crawling options:
-  #https://github.com/brutuscat/medusa/blob/master/lib/medusa/core.rb#L28
+  # crawling options:
+  # https://github.com/brutuscat/medusa/blob/master/lib/medusa/core.rb#L28
   options = {
     discard_page_bodies: true,
     #delay: 1,
     obey_robots_txt: true,
     skip_query_strings: true,
-    #threads: 4
+    read_timeout: 30
+    #threads: 4 (default)
   }
 
   Medusa.crawl(@site, options) do |medusa|
