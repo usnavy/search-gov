@@ -25,7 +25,7 @@ namespace :searchgov do
 
   task :crawl, [:domain, :crawler] => [:environment] do |_t, args|
     @domain = args[:domain]
-    @site = "https://#{@domain}"
+    @site = "http://#{@domain}"
     crawler = args[:crawler].to_sym
     @file = CSV.open("crawls/#{@domain}_#{crawler}_#{Time.now.strftime("%m-%e-%y_%H_%M")}", 'w')
 
@@ -83,7 +83,7 @@ def cobweb
   options = {
     crawl_id: Time.now.to_i,
     obey_robots: true,
-    thread_count: 4,
+    thread_count: 8,
     timeout: 30,
     valid_mime_types: SearchgovUrl::SUPPORTED_CONTENT_TYPES #this doesn't seem to work...
   }
@@ -107,8 +107,8 @@ def medusa
     #delay: 1,
     obey_robots_txt: true,
     skip_query_strings: true,
-    read_timeout: 30
-    #threads: 4 (default)
+    read_timeout: 30,
+    threads: 8 #(default is 4)
   }
 
   Medusa.crawl(@site, options) do |medusa|
