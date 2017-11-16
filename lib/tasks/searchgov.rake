@@ -108,14 +108,23 @@ def medusa
     obey_robots_txt: true,
     skip_query_strings: true,
     read_timeout: 30,
-    threads: 8 #(default is 4)
+    threads: 8, #(default is 4),
+    verbose: true
   }
 
-  Medusa.crawl(@site, options) do |medusa|
+  crawler = Medusa::Core.new(@site, options)
+  crawler.skip_links_like(/\.(mp4|#{Fetchable::BLACKLISTED_EXTENSIONS.join('|')})/i)
+  crawler.run do |medusa|
+    #https://stackoverflow.com/questions/40134098/anemone-crawler-skip-links-like-not-obeyed
+    #application_extensions = []...
+    #pdfs = Set.new
     medusa.on_every_page do |page|
+      puts "#{page.url}, #{page.code}, time: #{page.response_time}, depth: #{page.depth}, redirected: #{page.redirect_to}"
       #data/methods per page: https://github.com/brutuscat/medusa/blob/master/lib/medusa/page.rb#L8
       if page.code == 200 && page.visited.nil? && supported_content_type(page.headers['content-type'])
-        puts page.url
+        #puts page.url
+      #  puts page.links #to file?
+
         @file << [(page.redirect_to || page.url)] #, page.code, page.depth]
       end
     end
