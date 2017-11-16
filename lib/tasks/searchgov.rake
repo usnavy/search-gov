@@ -23,9 +23,10 @@ namespace :searchgov do
     end
   end
 
-  task :crawl, [:domain, :crawler] => [:environment] do |_t, args|
+  task :crawl, [:domain, :crawler,:srsly] => [:environment] do |_t, args|
     @domain = args[:domain]
     @site = "http://#{@domain}"
+    @srsly = args[:srsly]
     crawler = args[:crawler].to_sym
     @file = CSV.open("crawls/#{@domain}_#{crawler}_#{Time.now.strftime("%m-%e-%y_%H_%M")}", 'w')
 
@@ -100,6 +101,7 @@ def cobweb
 end
 
 def medusa
+  binding.pry
   # crawling options:
   # https://github.com/brutuscat/medusa/blob/master/lib/medusa/core.rb#L28
   options = {
@@ -113,21 +115,36 @@ def medusa
   }
 
   crawler = Medusa::Core.new(@site, options)
-  crawler.skip_links_like(/\.(mp4|#{Fetchable::BLACKLISTED_EXTENSIONS.join('|')})/i)
+    application_extensions = %w{doc docx pdf xls xlsx ppt}
+
+  crawler.skip_links_like(/\.(#{(Fetchable::BLACKLISTED_EXTENSIONS + application_extensions ).join('|')})/i)
   crawler.run do |medusa|
     #https://stackoverflow.com/questions/40134098/anemone-crawler-skip-links-like-not-obeyed
-    #application_extensions = []...
-    #pdfs = Set.new
+    @doc_links = Set.new
     medusa.on_every_page do |page|
+      puts "Links: #{page.links}---------------"
       puts "#{page.url}, #{page.code}, time: #{page.response_time}, depth: #{page.depth}, redirected: #{page.redirect_to}"
       #data/methods per page: https://github.com/brutuscat/medusa/blob/master/lib/medusa/page.rb#L8
       if page.code == 200 && page.visited.nil? && supported_content_type(page.headers['content-type'])
         #puts page.url
       #  puts page.links #to file?
+        SearchgovUrl.create(url: page.redirect_to) if @srsly
+        links = page.links.select{|link| /\.(#{application_extensions.join("|")})/i === link }
+        links.each{|link| @doc_links << link  }
+        links.each{|link| puts "doc: #{link}".blue  }
 
         @file << [(page.redirect_to || page.url)] #, page.code, page.depth]
       end
     end
+  end
+  
+  if @srsly
+   @doc_links.each do |link|
+       puts "creating SU for #{link}"
+      SearchgovUrl.create(url: link)
+    end
+
+   SearchgovUrl.where(last_crawl_status: nil).find_each{ |su| su.fetch }
   end
 end
 
