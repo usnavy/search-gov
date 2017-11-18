@@ -5,6 +5,8 @@ class SearchgovIndexer
   @@logger = ActiveSupport::BufferedLogger.new(Rails.root.to_s + "/log/SearchgovIndexer.log")
   @@logger.auto_flushing = 1
 
+  #TODO: option to crawl specific filetypes
+
   def self.perform(domain)
     # crawling options:
     # https://github.com/brutuscat/medusa/blob/master/lib/medusa/core.rb#L28
@@ -19,7 +21,7 @@ class SearchgovIndexer
     }
 
     doc_links = Set.new
-    site = "https://#{domain}" #fixme
+    site =  HTTP.follow.get("http://#{@domain}").uri.to_s
 
     Medusa.crawl(site, options) do |medusa|
       medusa.skip_links_like(skiplinks_regex)

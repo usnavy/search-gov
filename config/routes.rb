@@ -213,7 +213,14 @@ UsasearchRails3::Application.routes.draw do
     resources :search_modules do as_routes end
     resources :excluded_domains do as_routes end
     resources :affiliate_scopes do as_routes end
-    resources :site_domains do as_routes end
+    resources :site_domains do
+      member do
+        get 'index_into_searchgov'
+      end
+      as_routes
+    end
+
+
     resources :features do as_routes end
     resources :affiliate_feature_additions do as_routes end
     resources :help_links do as_routes end

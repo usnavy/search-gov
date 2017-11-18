@@ -8,7 +8,6 @@ class SiteDomain < ActiveRecord::Base
   BLACKLISTED_EXTENSION_REGEXP = Regexp.new("\.#{IndexedDocument::BLACKLISTED_EXTENSIONS.join('|')}$", true)
   validate :domain_coverage, if: Proc.new { |site_domain| site_domain.domain.present? and site_domain.affiliate.present? }
   before_save :set_site_name
-  after_create :crawl_domain
 
   def self.process_file(affiliate, file)
     if file.blank? or !VALID_UPLOAD_FILE_CONTENT_TYPE.include? file.content_type
@@ -29,9 +28,6 @@ class SiteDomain < ActiveRecord::Base
 
   protected
 
-  def crawl_domain
-    Resque.enqueue_with_priority(:high, SearchgovIndexer, domain)
-  end
 
   def set_site_name
     self.site_name = domain if site_name.blank?
