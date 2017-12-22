@@ -170,7 +170,7 @@ def medusa
     discard_page_bodies: true,
     #delay: 1,
     obey_robots_txt: true,
-    skip_query_strings: true, #FIXME
+    skip_query_strings: false, #FIXME
     read_timeout: 30,
     threads: 8, #(default is 4),
     verbose: true, #,
@@ -204,7 +204,11 @@ def medusa
         SearchgovUrl.create(url: url) if @srsly
         links = page.links.map(&:to_s)
         links = links.select do |link|
+          begin
           /\.(#{application_extensions.join("|")})/i === link && @robotex.allowed?(link)
+          rescue => e
+            puts "#{e}, #{link}".red
+          end
         end
         links.each{|link| @doc_links << [link,page.depth + 1 ] }
         links.each{|link| puts "#{link}".blue }
