@@ -228,6 +228,8 @@ Rails.application.routes.draw do
     resources :routed_queries do as_routes end
     resources :routed_query_keywords do as_routes end
     resources :watchers do as_routes end
+    resources :searchgov_domains do as_routes end #, only: :index
+    resources :searchgov_urls do as_routes end #, only: :index
   end
 
   match '/admin/affiliates/:id/analytics' => 'admin/affiliates#analytics', :as => :affiliate_analytics_redirect, via: :get
