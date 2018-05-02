@@ -205,6 +205,17 @@ Feature:  Administration
     And I follow "Outbound Rate Limits"
     Then I should see the following breadcrumbs: Super Admin > OutboundRateLimits
 
+  Scenario: Managing Search.gov Content
+    Given the following "searchgov domains" exist:
+      | domain     |
+      | agency.gov |
+    When I go to the admin home page
+    And I follow "Search.gov Domains"
+    Then I should see the following breadcrumbs: Super Admin > Search.gov Domains
+    And I should see "Search"
+    And I should see "Create New"
+    And I should see 'agency.gov'
+
   @javascript
   Scenario: Adding a system alert
     When I go to the admin home page
