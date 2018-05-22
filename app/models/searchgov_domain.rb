@@ -1,7 +1,10 @@
 class SearchgovDomain < ActiveRecord::Base
   before_validation(on: :create) { self.domain = self.domain&.downcase&.strip }
+
   validate :valid_domain?, on: :create
   validates_inclusion_of :scheme, in: %w(http https)
+  validates_uniqueness_of :domain, on: :create
+
   has_many :searchgov_urls, dependent: :destroy
 
   attr_readonly :domain
